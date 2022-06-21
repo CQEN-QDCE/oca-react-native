@@ -27,12 +27,11 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-project.xcworkspace
-
+oca-react-native.xcworkspace
+example.xcworkspace
 # Pack
 #
-
-oca-react-native*
+oca-react-native-*
 # Android/IJ
 #
 .classpath
@@ -50,6 +49,7 @@ example/ios/Pods
 
 # node.js
 #
+**/node_modules/
 node_modules/
 npm-debug.log
 yarn-debug.log
@@ -58,8 +58,8 @@ yarn-error.log
 # BUCK
 buck-out/
 \.buckd/
-android/app/libs
-android/keystores/debug.keystore
+**/android/app/libs
+*/android/keystores/debug.keystore
 
 # Expo
 .expo/*

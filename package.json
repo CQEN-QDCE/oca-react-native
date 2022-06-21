@@ -26,6 +26,8 @@
     "typescript": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepare": "bob build",
+    "copy-packFile": "cp ${npm_package_name}-${npm_package_version}.tgz example/tmp/",
+    "postpack": "npm run copy-packFile",
     "release": "release-it",
     "example": "yarn --cwd example",
     "pods": "cd example && pod-install --quiet",
@@ -131,19 +133,19 @@
     "useTabs": false
   },
   "react-native-builder-bob": {
-    "source": "src",
-    "output": "lib",
-    "targets": [
-      "commonjs",
-      "module",
-      [
-        "typescript",
-        {
-          "project": "tsconfig.build.json"
-        }
+      "source": "src",
+      "output": "lib",
+      "targets": [
+        "commonjs",
+        "module",
+        [
+          "typescript",
+          {
+            "project": "tsconfig.build.json"
+          }
+        ]
       ]
-    ]
-  },
+    },
   "dependencies": {
     "@types/js-yaml": "^4.0.5",
     "js-yaml": "^4.1.0",
