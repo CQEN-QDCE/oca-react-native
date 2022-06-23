@@ -1387,11 +1387,6 @@
     "jest-diff" "^26.0.0"
     "pretty-format" "^26.0.0"
 
-"@types/js-yaml@^4.0.5":
-  "integrity" "sha512-FhpRzf927MNQdRZP0J5DLIdTXhjLYzeUTmLAu69mnVksLH9CJY3IuSeEgbKUki7GQZm0WqDkGzyxju2EZGD2wA=="
-  "resolved" "https://registry.npmjs.org/@types/js-yaml/-/js-yaml-4.0.5.tgz"
-  "version" "4.0.5"
-
 "@types/json-schema@^7.0.3", "@types/json-schema@^7.0.9":
   "integrity" "sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ=="
   "resolved" "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.11.tgz"
@@ -1773,11 +1768,6 @@
   "version" "1.0.10"
   dependencies:
     "sprintf-js" "~1.0.2"
-
-"argparse@^2.0.1":
-  "integrity" "sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q=="
-  "resolved" "https://registry.npmjs.org/argparse/-/argparse-2.0.1.tgz"
-  "version" "2.0.1"
 
 "arr-diff@^4.0.0":
   "integrity" "sha512-YVIQ82gZPGBebQV/a8dar4AitzCQs0jjXwMPZllpXMaGjXPYVUawSxQrRsjhjupyVxEvbHgUmIhKVlND+j02kA=="
@@ -4513,13 +4503,6 @@
     "argparse" "^1.0.7"
     "esprima" "^4.0.0"
 
-"js-yaml@^4.1.0":
-  "integrity" "sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA=="
-  "resolved" "https://registry.npmjs.org/js-yaml/-/js-yaml-4.1.0.tgz"
-  "version" "4.1.0"
-  dependencies:
-    "argparse" "^2.0.1"
-
 "jsc-android@^250230.2.1":
   "integrity" "sha512-KmxeBlRjwoqCnBBKGsihFtvsBHyUFlBxJPK4FzeYcIuBfdjv6jFys44JITAgSTbQD+vIdwMEfyZklsuQX0yI1Q=="
   "resolved" "https://registry.npmjs.org/jsc-android/-/jsc-android-250230.2.1.tgz"
@@ -5435,15 +5418,6 @@
     "call-bind" "^1.0.2"
     "define-properties" "^1.1.3"
     "es-abstract" "^1.19.1"
-
-"oca-react-native@file:/./tmp/oca-react-native-0.1.0.tgz":
-  "integrity" "sha512-cWyDgsBgNSAWj71H9zpYyxTW2HS+ZsmdV2IQlYLypSnXYUb/IkXmuURlDWBE1eZ2Kvu0nXy2+t5xtvCbhkJwfQ=="
-  "resolved" "file:tmp/oca-react-native-0.1.0.tgz"
-  "version" "0.1.0"
-  dependencies:
-    "@types/js-yaml" "^4.0.5"
-    "js-yaml" "^4.1.0"
-    "react-native-webview" "^11.22.2"
 
 "on-finished@~2.3.0":
   "integrity" "sha512-ikqdkGAAyf/X/gPhXGvfgAytDZtDbr+bkNUJ0N9h5MI/dmdgCs3l6hoHrcUv41sRKew3jIwrp4qQDXiK99Utww=="

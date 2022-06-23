@@ -51,7 +51,7 @@ export function Component(): JSX.Element {
       style={{ width: '100%', height: 200, backgroundColor: '#a7a7a7' }}
     >
       <View style={{ minHeight: 50, backgroundColor: 'white' }}>
-        <Text style={{ backgroundColor: 'white', color: 'black' }}>
+        <Text style={{ backgroundColor: 'white', color: 'red' }}>
           Hello World
         </Text>
       </View>
