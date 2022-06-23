@@ -6,14 +6,16 @@ Composantes React Native pour Overlay Capture Architecture (OCA).
 
 Au root du projet, exécutez:
 
-    npm run prepare
+    npm install
 
-Ensuite, on _pack_:
-
-    npm pack
-
-finalement, aller dans l'exemple et faire les installations:
+Aller dans l'exemple et faire les installations:
 
     cd example
 
     npm install
+
+Finalement, pour exécuter avec xcode installer les pods:
+
+    cd ios
+    
+    pod install
