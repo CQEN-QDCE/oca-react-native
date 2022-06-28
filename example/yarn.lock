@@ -5419,6 +5419,15 @@
     "define-properties" "^1.1.3"
     "es-abstract" "^1.19.1"
 
+"oca-react-native@file:..":
+  "resolved" "file:.."
+  "version" "0.1.0"
+  dependencies:
+    "@types/js-yaml" "^4.0.5"
+    "js-yaml" "^4.1.0"
+    "oca.js" "^0.1.38"
+    "react-native-webview" "^11.22.2"
+
 "on-finished@~2.3.0":
   "integrity" "sha512-ikqdkGAAyf/X/gPhXGvfgAytDZtDbr+bkNUJ0N9h5MI/dmdgCs3l6hoHrcUv41sRKew3jIwrp4qQDXiK99Utww=="
   "resolved" "https://registry.npmjs.org/on-finished/-/on-finished-2.3.0.tgz"
