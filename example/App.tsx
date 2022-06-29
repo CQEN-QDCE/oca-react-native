@@ -10,13 +10,10 @@ import {
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {OcaCredential} from 'oca-react-native';
-import resolveFromZip from '../src/ResolveFromZip';
 const structure = require('./structure.json');
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
-  const test = resolveFromZip('../../new-oca.zip');
-  console.log(test);
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
