@@ -1,4 +1,4 @@
 import { OcaCredential } from './OcaCredential';
-import ResolveFromZip from './ResolveFromZip';
+import CreateStructure from './CreateStructure';
 
-export { OcaCredential, ResolveFromZip };
+export { OcaCredential, CreateStructure };

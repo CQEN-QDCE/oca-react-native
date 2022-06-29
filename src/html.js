@@ -66,7 +66,6 @@ module.exports = function () {
                 const pageDiv = document.createElement('div');
                 pageDiv.className = 'page';
                 pageDiv.classList.add('page-' + i);
-                alert(i)
                 if (page.config) {
                     if (page.config.style) {
                         pageDiv.style.cssText = page.config.style;

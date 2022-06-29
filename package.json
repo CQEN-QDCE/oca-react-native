@@ -148,6 +148,7 @@
   },
   "dependencies": {
     "@types/js-yaml": "^4.0.5",
+    "axios": "^0.27.2",
     "js-yaml": "^4.1.0",
     "oca.js": "^0.1.38",
     "react-native-webview": "^11.22.2"
