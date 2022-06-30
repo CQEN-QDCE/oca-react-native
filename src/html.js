@@ -1,5 +1,4 @@
-module.exports = function () {
-  return `
+module.exports = function() { return `
 <html>
   <head>
     <style>
