@@ -133,22 +133,23 @@
     "useTabs": false
   },
   "react-native-builder-bob": {
-      "source": "src",
-      "output": "lib",
-      "targets": [
-        "commonjs",
-        "module",
-        [
-          "typescript",
-          {
-            "project": "tsconfig.build.json"
-          }
-        ]
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
       ]
-    },
+    ]
+  },
   "dependencies": {
     "@types/js-yaml": "^4.0.5",
     "js-yaml": "^4.1.0",
+    "oca.js": "^0.1.38",
     "react-native-webview": "^11.22.2"
   }
 }

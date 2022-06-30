@@ -9,12 +9,11 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-// @ts-ignore
-import {Component} from 'oca-react-native';
+import {OcaCredential} from 'oca-react-native';
+const structure = require('./structure.json');
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
-
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
@@ -38,10 +37,17 @@ const App = () => {
               color: isDarkMode ? Colors.white : Colors.black,
             },
           ]}>
-          OCA React Native Component
+          OCA React Native Component.
         </Text>
-        <View style={{width: '100%', backgroundColor: '#a9a9a9'}}>
-          <Component />
+        <View
+          style={{
+            width: 350,
+            height: 250,
+            backgroundColor: 'transparent',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <OcaCredential height={'80%'} width={'80%'} structure={structure} />
         </View>
       </View>
     </SafeAreaView>
