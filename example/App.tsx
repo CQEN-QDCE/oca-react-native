@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {OcaCredential} from 'oca-react-native';
+import {OcaCredential, OcaForm} from 'oca-react-native';
 const structure = require('./structure.json');
 
 const App = () => {
@@ -24,7 +24,7 @@ const App = () => {
       <View
         style={{
           borderRadius: 10,
-          paddingVertical: 10,
+          paddingVertical: 10,        
           minHeight: 200,
           width: '90%',
           alignItems: 'center',
@@ -48,6 +48,7 @@ const App = () => {
             alignItems: 'center',
           }}>
           <OcaCredential height={'80%'} width={'80%'} structure={structure} />
+          <OcaForm height={'80%'} width={'80%'} structure={structure} /> 
         </View>
       </View>
     </SafeAreaView>
