@@ -1,13 +1,13 @@
-import { Structure } from './entities/Structure';
-import { Section } from './entities/Section';
-import { ControlFactory } from './ControlFactory';
-import type { ControlData } from './types/ControlData';
-import type { Translations } from './types/Translations';
-import type { Attribute } from './types/Attribute';
-import type { AttributeTranslation } from './types/AttributeTranslation';
-import type { SectionTranslation } from './types/SectionTranslation';
-import type { StructureTranslation } from './types/StructureTranslation';
-import type { Config as OcaJsConfig } from './types/OcaJsConfig';
+import { Structure } from '../entities/Structure';
+import { Section } from '../entities/Section';
+import { ControlFactory } from '../ControlFactory';
+import type { ControlData } from '../types/ControlData';
+import type { Translations } from '../types/Translations';
+import type { Attribute } from '../types/Attribute';
+import type { AttributeTranslation } from '../types/AttributeTranslation';
+import type { SectionTranslation } from '../types/SectionTranslation';
+import type { StructureTranslation } from '../types/StructureTranslation';
+import type { Config as OcaJsConfig } from '../OcaJs';
 
 import type {
   OCA,
@@ -29,7 +29,7 @@ import type {
   Overlay,
 } from 'oca.js';
 
-const CreateStructure = async (
+export const createStructure = async (
   oca: OCA,
   config: OcaJsConfig
 ): Promise<Structure> => {
@@ -60,6 +60,7 @@ const CreateStructure = async (
   for (const [id, section] of Object.entries(sectionsFromLabel)) {
     structure.addSection(new Section(id, section.translations));
   }
+
   for (const [attrName, attrType] of Object.entries(
     oca.capture_base.attributes
   )) {
@@ -79,21 +80,21 @@ const CreateStructure = async (
       ...attribute,
     };
     if (sai && oca.references && oca.references[sai]) {
-      data.reference = await CreateStructure(oca.references[sai], config);
+      data.reference = await createStructure(oca.references[sai], config);
     }
     const control = await ControlFactory.getControl(attrType, data, config);
 
-    if (control && control.reference && control.type == 'Reference') {
+    if (control!.type == 'Reference') {
       const customOverlays = groupOverlays(
-        sortedOverlays[control.reference.captureBaseSAI] || []
+        sortedOverlays[control!.reference!.captureBaseSAI] || []
       );
       if (customOverlays.credentialLayout.length > 0) {
-        control.reference.addCredentialLayout(
+        control!.reference!.addCredentialLayout(
           customOverlays.credentialLayout[0].layout
         );
       }
       if (customOverlays.formLayout.length > 0) {
-        control.reference.addFormLayout(customOverlays.formLayout[0].layout);
+        control!.reference!.addFormLayout(customOverlays.formLayout[0].layout);
       }
     }
 
@@ -504,5 +505,3 @@ const getAttributesFromEntryCodeMapping = (
   });
   return result;
 };
-
-export default CreateStructure;

@@ -10,19 +10,14 @@ import {
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {OcaCredential} from 'oca-react-native';
-import getStructure from './getStructure';
 const structure = require('./structure.json');
 
-const App = async () => {
+const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
-
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
-  console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
 
-  const testStructure = await getStructure();
-  console.log('##############################');
   return (
     <SafeAreaView style={[backgroundStyle, {flex: 1, alignItems: 'center'}]}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />

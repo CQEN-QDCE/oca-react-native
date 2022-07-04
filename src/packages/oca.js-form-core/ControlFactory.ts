@@ -7,9 +7,9 @@ import { ControlSelect } from './entities/controls/ControlSelect';
 import { ControlSelectMultiple } from './entities/controls/ControlSelectMultiple';
 import { ControlText } from './entities/controls/ControlText';
 import { ControlReference } from './entities/controls/ControlReference';
-import type { Config as OcaJsConfig } from './types/OcaJsConfig';
+import type { Config as OcaJsConfig } from './OcaJs';
 import axios from 'axios';
-import CreateStructure from './CreateStructure';
+import { createStructure } from './use_cases/createStructure';
 
 export class ControlFactory {
   static async getControl(
@@ -90,7 +90,7 @@ export class ControlFactory {
               )
             )
           );
-          data.reference = await CreateStructure(result.data, config);
+          data.reference = await createStructure(result.data, config);
         } catch {
           data.reference = null;
         }
