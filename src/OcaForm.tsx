@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
 //import { FlatList, StyleSheet } from 'react-native'
-import { FlatList } from 'react-native'
+import { FlatList, SafeAreaView } from 'react-native'
 //import { ColorPallet, TextTheme } from './theme'
 import OcaAttribute from './OcaAttribute'
 import { OcaJs } from './packages/oca.js-form-core/OcaJs'
 import type { OCA } from 'oca.js';
+import type { AttributeTranslation } from './packages/oca.js-form-core/types';
 
 interface OcaFormProps {
+    oca: OCA | undefined
     attributes?: Array<any>
+    attributeValues: Map<string, string | number>
     hideAttributeValues?: boolean
     attribute?: (attribute: any) => React.ReactElement | null
   }
@@ -27,22 +30,33 @@ interface OcaFormProps {
   })
 */
   const OcaForm: React.FC<OcaFormProps> = ({
+    oca,
+    attributeValues,
     attributes = [],
     hideAttributeValues = false,
     attribute = null,
   }) => {
     const [shown, setShown] = useState<boolean[]>([])
-    fetch('https://repository.oca.argo.colossi.network/api/v0.1/schemas/E2oRZ5zEKxTfTdECW-v2Q7bM_H0OD0ko7IcCwdo_u9co').then((response) => response.json()).then(schema => {
-      const ocaJs = new OcaJs({});  
-      const ocaTest: OCA = schema;
-      ocaJs.createStructure(schema).then(ocaStructure => {
-        let bla = 1; 
-      });
-    });
+    const ocaJs = new OcaJs({});   
+    const lang = 'en';
+    const [attributes2, setAttributes2] = useState<Array<any>>([]);
     
-    attributes.push({name: 'name123', value: 'value1dvdvdvdvdvd'})
+    useEffect(() => {
+      if (oca) {
+        ocaJs.createStructure(oca).then(ocaStructure => {
+          for (let control of ocaStructure.controls) {
+            if (control && lang in control.translations) { 
+              const attributeTranslation: AttributeTranslation = control.translations[lang];
+              attributes.push({name: attributeTranslation.label, value: attributeValues.get(control.name)});
+            }
+          }
+          setAttributes2([...attributes]); 
+        });
+      }
+    }, [oca, attributeValues]);
+
     const resetShown = (): void => {
-      setShown(attributes.map(() => false)) 
+      setShown(attributes.map(() => true)) 
     }
   
     useEffect(() => {
@@ -51,13 +65,10 @@ interface OcaFormProps {
   
     return (
       <FlatList
-        data={attributes}
+        data={attributes2}
         keyExtractor={({ name }) => name}
         renderItem={({ item: attr, index }) =>
-          attribute ? (
-            attribute(attr)
-          ) : (
-            <OcaAttribute
+            <OcaAttribute 
               attribute={attr}
               hideAttributeValue={hideAttributeValues} 
               onToggleViewPressed={() => {
@@ -67,7 +78,6 @@ interface OcaFormProps {
               }}
               shown={hideAttributeValues ? !!shown[index] : true}
             />
-          )
         }
       />
     )

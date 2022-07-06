@@ -62,7 +62,6 @@ const OcaAttribute: React.FC<OcaAttributeProps> = ({
           ) : (
             <>
               <View style={styles.valueText}>
-                <Text>Coucou</Text>
                 <Text style={styles.text}>{shown ? attribute.value : Array(10).fill('\u2022').join('')}</Text>
               </View>
               {hideAttributeValue ? (
