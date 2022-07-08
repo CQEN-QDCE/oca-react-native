@@ -14,6 +14,10 @@ export function OcaCredential({
   width,
   height,
 }: props): JSX.Element {
+  
+  let app: string = DOM('./web/App');
+  let rootId: string = '';
+
   const getInjection = (structureJson: any) => {
     const dataRepo = {
       EYz7AI0ePCPnpmTpM0CApKoMzBA5bkwek1vsRBEQuMdQ: {
@@ -69,7 +73,21 @@ export function OcaCredential({
         <WebView
           automaticallyAdjustContentInsets={false}
           originWhitelist={['*']}
-          source={{ html: require('./html.js')() }}
+          source={{
+            html: `
+              <!DOCTYPE html>
+              <html>
+                <head>
+                  <meta charset="utf-8" />
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+                </head>
+                <body>
+                  <div id="${rootId ?? 'root'}"></div>
+                  <script>${app}</script>
+                </body>
+              </html>
+            `,
+          }}
           incognito={true}
           cacheEnabled={false}
           style={{

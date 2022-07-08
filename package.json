@@ -19,7 +19,10 @@
     "!ios/build",
     "!**/__tests__",
     "!**/__fixtures__",
-    "!**/__mocks__"
+    "!**/__mocks__",
+    "babel.js",
+    "client.js",
+    "global.d.ts"
   ],
   "scripts": {
     "test": "jest",
@@ -49,6 +52,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
+    "@babel/cli": "^7.18.6",
+    "@babel/core": "^7.18.6",
     "@commitlint/config-conventional": "^11.0.0",
     "@react-native-community/eslint-config": "^2.0.0",
     "@release-it/conventional-changelog": "^2.0.0",
@@ -151,8 +156,12 @@
   "dependencies": {
     "@types/js-yaml": "^4.0.5",
     "axios": "^0.27.2",
+    "babel-plugin-preval": "^5.1.0",
+    "do-sync": "^3.0.19",
     "js-yaml": "^4.1.0",
+    "node-fetch": "^3.2.6",
     "oca.js": "^0.1.38",
+    "react-dom": "^18.2.0",
     "react-native-webview": "^11.22.2"
   }
 }
