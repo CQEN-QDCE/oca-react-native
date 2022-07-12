@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   SafeAreaView,
+  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
@@ -9,7 +10,7 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import { OcaCredential, OcaForm, OCA } from 'oca-react-native';
+import {OcaCredential, OcaForm, OCA} from 'oca-react-native';
 
 const structure = require('./structure.json');
 
@@ -21,55 +22,121 @@ const App = () => {
 
   const [data, setData] = useState<OCA | undefined>(undefined);
 
-  const [attributeValues, setAttributeValues] = useState<Map<string, string | number>>(new Map<string, string | number>());
+  const [attributeValues, setAttributeValues] = useState<
+    Map<string, string | number>
+  >(new Map<string, string | number>());
 
   useEffect(() => {
-    fetch('https://repository.oca.argo.colossi.network/api/v0.1/schemas/E2oRZ5zEKxTfTdECW-v2Q7bM_H0OD0ko7IcCwdo_u9co')
+    fetch(
+      'https://repository.oca.argo.colossi.network/api/v0.1/schemas/E2oRZ5zEKxTfTdECW-v2Q7bM_H0OD0ko7IcCwdo_u9co',
+    )
       .then(result => {
         return result.json();
       })
-      .then(json => { 
+      .then(json => {
         setData(json as OCA);
         let newAttributeValues = new Map<string, string | number>();
-        newAttributeValues.set('dateOfBirth','value1');
-        newAttributeValues.set('documentType','PASSPORT');
+        newAttributeValues.set('dateOfBirth', '02-04-03');
+        newAttributeValues.set('documentType', 'PASSPORT');
+        newAttributeValues.set('fullName', 'Meo');
+        newAttributeValues.set(
+          'photoImage',
+          'iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeAQAAAADlUEq3AAAAAW9yTlQBz6J3mgAAACZJREFUaN7twTEBAAAAwqD1T+1pCaAAAAAAAAAAAAAAAAAAAAC4AT2GAAGWvJzxAAAAAElFTkSuQmCC',
+        );
+
         setAttributeValues(newAttributeValues);
       })
       .catch();
   }, []);
 
   return (
-    <SafeAreaView style={[backgroundStyle, {flex: 1, alignItems: 'center'}]}>
+    <SafeAreaView
+      style={[
+        backgroundStyle,
+        {flex: 1, alignItems: 'center', maxHeight: '100%', marginVertical: 15},
+      ]}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <View
         style={{
-          borderRadius: 10,
-          paddingVertical: 10,        
-          minHeight: 500,
-          width: '90%',
+          flex: 1,
+          width: '100%',
+          justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: isDarkMode ? Colors.black : Colors.white,
         }}>
-        <Text
-          style={[
-            styles.sectionTitle,
-            {
-              color: isDarkMode ? Colors.white : Colors.black,
-            },
-          ]}>
-          OCA React Native Component.
-        </Text>
         <View
           style={{
-            width: 350,
-            height: 250,
-            backgroundColor: 'transparent',
-            justifyContent: 'center',
+            flex: 1,
+            borderRadius: 10,
+            paddingVertical: 10,
+            width: '90%',
             alignItems: 'center',
+            backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <OcaCredential height={'80%'} width={'80%'} structure={structure} />
+          <Text
+            style={[
+              styles.sectionTitle,
+              {
+                color: isDarkMode ? Colors.white : Colors.black,
+              },
+            ]}>
+            OCA React Native Component.
+          </Text>
+          <View
+            style={{
+              width: 350,
+              height: 250,
+              backgroundColor: 'transparent',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <OcaCredential height={'80%'} width={'80%'} structure={structure} />
+          </View>
         </View>
-        <OcaForm oca={data} attributeValues={attributeValues} height={'80%'} width={'80%'} structure={structure} /> 
+        <View
+          style={{
+            flex: 1,
+            borderRadius: 10,
+            paddingVertical: 10,
+            marginTop: 15,
+            width: '90%',
+            alignItems: 'center',
+            backgroundColor: isDarkMode ? Colors.black : Colors.white,
+          }}>
+          <Text
+            style={[
+              styles.sectionTitle,
+              {
+                color: isDarkMode ? Colors.white : Colors.black,
+              },
+            ]}>
+            OCA React Native Form.
+          </Text>
+          <ScrollView>
+            <OcaForm
+              oca={data}
+              attributeValues={attributeValues}
+              deviceLanguage={'fr'}
+              hideShowOptions={{visibility: false}}
+            />
+            {
+              // OCAForm other possible props
+              /*
+                stylingOptions?={
+                  attributeContainerStyle: StyleProp<ViewStyle>;
+                  labelTextStyle?: StyleProp<TextStyle>;
+                  textStyle?: StyleProp<TextStyle>;
+                  separatorStyle?: StyleProp<ViewStyle>;
+                  binaryStyle?: StyleProp<any>;
+                 };
+                 hideShowOptions?: {
+                  visibility?: boolean;
+                  labelHide?: React.ReactNode;
+                  labelShow?: React.ReactNode;
+                 };
+            */
+            }
+          </ScrollView>
+        </View>
       </View>
     </SafeAreaView>
   );
