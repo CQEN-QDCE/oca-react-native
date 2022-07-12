@@ -1,78 +1,89 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-type BaseColor = Record<string, string>
+type BaseColor = Record<string, string>;
 
 interface FontAttributes {
-  fontFamily?: string
-  fontSize: number
-  fontWeight: 'normal' | 'bold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900'
-  color: string
+  fontFamily?: string;
+  fontSize: number;
+  fontWeight:
+    | 'normal'
+    | 'bold'
+    | '100'
+    | '200'
+    | '300'
+    | '400'
+    | '500'
+    | '600'
+    | '700'
+    | '800'
+    | '900';
+  color: string;
 }
 
 interface TextTheme {
-  headingOne: FontAttributes
-  headingTwo: FontAttributes
-  headingThree: FontAttributes
-  headingFour: FontAttributes
-  normal: FontAttributes
-  label: FontAttributes
-  caption: FontAttributes
+  headingOne: FontAttributes;
+  headingTwo: FontAttributes;
+  headingThree: FontAttributes;
+  headingFour: FontAttributes;
+  normal: FontAttributes;
+  label: FontAttributes;
+  caption: FontAttributes;
 }
 
 interface BrandColors {
-  primary: string
-  highlight: string
-  primaryBackground: string
-  secondaryBackground: string
-  link: string
+  primary: string;
+  highlight: string;
+  primaryBackground: string;
+  secondaryBackground: string;
+  link: string;
 }
 
 interface SemanticColors {
-  error: string
-  success: string
-  focus: string
+  error: string;
+  success: string;
+  focus: string;
 }
 
 interface NotificationColors {
-  success: string
-  successBorder: string
-  successIcon: string
-  successText: string
-  info: string
-  infoBorder: string
-  infoIcon: string
-  infoText: string
-  warn: string
-  warnBorder: string
-  warnIcon: string
-  warnText: string
-  error: string
-  errorBorder: string
-  errorIcon: string
-  errorText: string
+  success: string;
+  successBorder: string;
+  successIcon: string;
+  successText: string;
+  info: string;
+  infoBorder: string;
+  infoIcon: string;
+  infoText: string;
+  warn: string;
+  warnBorder: string;
+  warnIcon: string;
+  warnText: string;
+  error: string;
+  errorBorder: string;
+  errorIcon: string;
+  errorText: string;
 }
 
 interface GrayscaleColors {
-  black: string
-  darkGrey: string
-  mediumGrey: string
-  lightGrey: string
-  veryLightGrey: string
-  white: string
+  black: string;
+  darkGrey: string;
+  mediumGrey: string;
+  lightGrey: string;
+  veryLightGrey: string;
+  white: string;
 }
 
 interface ColorPallet {
-  brand: BrandColors
-  semantic: SemanticColors
-  notification: NotificationColors
-  grayscale: GrayscaleColors
+  brand: BrandColors;
+  semantic: SemanticColors;
+  notification: NotificationColors;
+  grayscale: GrayscaleColors;
 }
 
-export const borderRadius = 4
-export const heavyOpacity = 0.7
-export const lightOpacity = 0.35
-export const zeroOpacity = 0.0
-export const borderWidth = 2
+export const borderRadius = 4;
+export const heavyOpacity = 0.7;
+export const lightOpacity = 0.35;
+export const zeroOpacity = 0.0;
+export const borderWidth = 2;
 
 const BrandColors: BrandColors = {
   primary: '#42803E',
@@ -80,13 +91,13 @@ const BrandColors: BrandColors = {
   primaryBackground: '#000000',
   secondaryBackground: '#313132',
   link: '#FFFFFF',
-}
+};
 
 const SemanticColors: SemanticColors = {
   error: '#D8292F',
   success: '#2E8540',
   focus: '#3399ff',
-}
+};
 
 const NotificationColors: NotificationColors = {
   success: '#313132',
@@ -105,7 +116,7 @@ const NotificationColors: NotificationColors = {
   errorBorder: '#D8292F',
   errorIcon: '#D8292F',
   errorText: '#FFFFFF',
-}
+};
 
 const GrayscaleColors: GrayscaleColors = {
   black: '#000000',
@@ -114,14 +125,14 @@ const GrayscaleColors: GrayscaleColors = {
   lightGrey: '#d3d3d3',
   veryLightGrey: '#f2f2f2',
   white: '#FFFFFF',
-}
+};
 
 export const ColorPallet: ColorPallet = {
   brand: BrandColors,
   semantic: SemanticColors,
   notification: NotificationColors,
   grayscale: GrayscaleColors,
-}
+};
 
 /**
  * DEPRECATED: The remainder of this file should be refactored
@@ -146,50 +157,50 @@ export const BaseColors: BaseColor = {
   transparent: `rgba(0, 0, 0, ${zeroOpacity})`,
   yellow: '#FCBA19',
   white: '#FFFFFF',
-}
+};
 
 export const StatusColors: BaseColor = {
   error: BaseColors.red,
   info: BaseColors.black,
   success: BaseColors.green,
   warning: BaseColors.black,
-}
+};
 
 interface ColorTheme extends BaseColor {
-  accent: string
-  background: string
-  backgroundLight: string
-  borderLight: string
-  primary: string
-  primaryActive: string
-  shadow: string
-  text: string
+  accent: string;
+  background: string;
+  backgroundLight: string;
+  borderLight: string;
+  primary: string;
+  primaryActive: string;
+  shadow: string;
+  text: string;
 }
 
 interface CredentialOfferTheme {
-  background: string
+  background: string;
 }
 
 interface ContactTheme {
-  background: string
+  background: string;
 }
 
 interface ProofRequestTheme {
-  background: string
+  background: string;
 }
 
 interface SettingsTheme {
-  background: string
+  background: string;
 }
 
 interface SingleSelectBlockTheme {
-  background: string
+  background: string;
 }
 
 interface TextBoxTheme {
-  background: string
-  border: string
-  text: string
+  background: string;
+  border: string;
+  text: string;
 }
 
 export const Colors: ColorTheme = {
@@ -203,33 +214,33 @@ export const Colors: ColorTheme = {
   text: BaseColors.white,
   ...BaseColors,
   ...StatusColors,
-}
+};
 
 export const CredentialOfferTheme: CredentialOfferTheme = {
   background: Colors.black,
-}
+};
 
 export const ContactTheme: ContactTheme = {
   background: Colors.shadow,
-}
+};
 
 export const ProofRequestTheme: ProofRequestTheme = {
   background: Colors.black,
-}
+};
 
 export const SettingsTheme: SettingsTheme = {
   background: Colors.shadow,
-}
+};
 
 export const SingleSelectBlockTheme: SingleSelectBlockTheme = {
   background: Colors.shadow,
-}
+};
 
 export const TextBoxTheme: TextBoxTheme = {
   background: Colors.darkGreenLightTransparent,
   border: Colors.borderLight,
   text: Colors.text,
-}
+};
 
 export const TextTheme: TextTheme = {
   headingOne: {
@@ -267,7 +278,7 @@ export const TextTheme: TextTheme = {
     fontWeight: 'normal',
     color: Colors.text,
   },
-}
+};
 
 export const Buttons = StyleSheet.create({
   primary: {
@@ -316,4 +327,4 @@ export const Buttons = StyleSheet.create({
     color: Colors.darkGreenLightTransparent,
     textAlign: 'center',
   },
-})
+});
