@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "oca-react-native": "file:..",
-    "react": "18.2.0",
-    "react-native": "0.68.2"
+    "react": "18.0.0",
+    "react-native": "0.69.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
