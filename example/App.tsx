@@ -10,7 +10,8 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {OcaCredential, OCA, OcaForm} from 'oca-react-native';
+import {OcaCredential, OcaForm, OCA} from 'oca-react-native';
+
 
 const structure = require('./structure.json');
 
@@ -60,6 +61,7 @@ const App = () => {
           'signatureImage',
           'data;image/jpg,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeAQAAAADlUEq3AAAAAW9yTlQBz6J3mgAAACZJREFUaN7twTEBAAAAwqD1T+1pCaAAAAAAAAAAAAAAAAAAAAC4AT2GAAGWvJzxAAAAAElFTkSuQmCC',
         );
+
 
         setAttributeValues(newAttributeValues);
       })
@@ -115,6 +117,7 @@ const App = () => {
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center',
+            backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <View
             style={{
@@ -143,7 +146,7 @@ const App = () => {
               />
               {
                 // OCAForm other possible props
-                /*
+            /*
                 stylingOptions?={
                   attributeContainerStyle: StyleProp<ViewStyle>;
                   labelTextStyle?: StyleProp<TextStyle>;
