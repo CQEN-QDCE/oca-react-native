@@ -12,7 +12,6 @@ import {
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {OcaCredential, OcaForm, OCA} from 'oca-react-native';
 
-
 const structure = require('./structure.json');
 
 const App = () => {
@@ -61,7 +60,6 @@ const App = () => {
           'signatureImage',
           'data;image/jpg,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeAQAAAADlUEq3AAAAAW9yTlQBz6J3mgAAACZJREFUaN7twTEBAAAAwqD1T+1pCaAAAAAAAAAAAAAAAAAAAAC4AT2GAAGWvJzxAAAAAElFTkSuQmCC',
         );
-
 
         setAttributeValues(newAttributeValues);
       })
@@ -117,7 +115,6 @@ const App = () => {
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <View
             style={{
@@ -146,20 +143,20 @@ const App = () => {
               />
               {
                 // OCAForm other possible props
-            /*
+                /*
                 stylingOptions?={
                   attributeContainerStyle: StyleProp<ViewStyle>;
                   labelTextStyle?: StyleProp<TextStyle>;
                   textStyle?: StyleProp<TextStyle>;
                   separatorStyle?: StyleProp<ViewStyle>;
                   binaryStyle?: StyleProp<any>;
-                 };
-                 hideShowOptions?: {
+                };
+                hideShowOptions?: {
                   visibility?: boolean;
                   labelHide?: React.ReactNode;
                   labelShow?: React.ReactNode;
-                 };
-            */
+                };
+                */
               }
             </ScrollView>
           </View>
