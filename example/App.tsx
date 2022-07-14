@@ -66,6 +66,31 @@ const App = () => {
       .catch();
   }, []);
 
+  const dataRepo = {
+    EYz7AI0ePCPnpmTpM0CApKoMzBA5bkwek1vsRBEQuMdQ: {
+      drivingLicenseID: 'I12345678',
+      expirationDate: '08/31/2019',
+      lastName: 'Card',
+      firstName: 'Holder',
+      buildingNumber: '3570',
+      street: '21th Street',
+      city: 'Sacramento',
+      state: 'CA',
+      zipCode: '95818',
+      dateOfBirth: '08/29/1977',
+      restrictions: 'None',
+      class: 'C',
+      endorsements: 'None',
+      sex: 'M',
+      hairColor: 'brn',
+      eyesColor: 'blu',
+      height: '5\'-55"',
+      weight: '125',
+      documentDiscriminator: '09/30/201060221/21FD/18',
+      issueDate: '09/06/2010',
+    },
+  };
+
   return (
     <SafeAreaView
       style={[
@@ -106,7 +131,7 @@ const App = () => {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <OcaCredential height={'80%'} width={'80%'} oca={data} />
+            <OcaCredential height={'80%'} width={'80%'} oca={data} attributeValues={new Map(Object.entries(dataRepo.EYz7AI0ePCPnpmTpM0CApKoMzBA5bkwek1vsRBEQuMdQ))} />
           </View>
         </View>
         <View

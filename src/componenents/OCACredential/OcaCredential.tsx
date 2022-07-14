@@ -7,52 +7,30 @@ import { OcaJs } from '../../packages/oca.js-form-core/OcaJs';
 
 type props = {
   oca: OCA;
+  attributeValues: Map<string, string | number>;
   width: number | string | undefined;
   height: number | string | undefined;
 };
 
 export function OcaCredential({
   oca,
+  attributeValues,
   width,
   height,
 }: props): JSX.Element {
   const ocaJs = new OcaJs({}); 
-  let webview = useRef<WebView>();
+  let webviewRef = useRef<WebView>();
   useEffect(() => {
     if (oca) {
       ocaJs.createStructure(oca).then(ocaStructure => {
-        if (webview.current) {
-          webview.current.injectJavaScript(getInjection(ocaStructure));       
+        if (webviewRef.current) {
+          webviewRef.current.injectJavaScript(getInjection(ocaStructure));       
         }   
       });
     }
   }, [oca]);
   
   const getInjection = (structureJson: any) => {
-    const dataRepo = {
-      EYz7AI0ePCPnpmTpM0CApKoMzBA5bkwek1vsRBEQuMdQ: {
-        drivingLicenseID: 'I12345678',
-        expirationDate: '08/31/2019',
-        lastName: 'Card',
-        firstName: 'Holder',
-        buildingNumber: '3570',
-        street: '21th Street',
-        city: 'Sacramento',
-        state: 'CA',
-        zipCode: '95818',
-        dateOfBirth: '08/29/1977',
-        restrictions: 'None',
-        class: 'C',
-        endorsements: 'None',
-        sex: 'M',
-        hairColor: 'brn',
-        eyesColor: 'blu',
-        height: '5\'-55"',
-        weight: '125',
-        documentDiscriminator: '09/30/201060221/21FD/18',
-        issueDate: '09/06/2010',
-      },
-    };
     let layout = jsYaml.load(structureJson.credentialLayout, {
       schema: jsYaml.JSON_SCHEMA,
     });
@@ -60,7 +38,7 @@ export function OcaCredential({
       'renderOCACredential2(' +
       JSON.stringify(structureJson) +
       ', ' +
-      JSON.stringify(dataRepo.EYz7AI0ePCPnpmTpM0CApKoMzBA5bkwek1vsRBEQuMdQ) +
+      JSON.stringify(attributeValues ? Object.fromEntries(attributeValues) : {}) +
       ", { dataVaultUrl: 'https://data-vault.argo.colossi.network/api/v1/files'}, " +
       JSON.stringify(layout) +
       '); true;'
@@ -68,9 +46,7 @@ export function OcaCredential({
   };
 
   return (
-    <SafeAreaView
-      style={{ width: width, height: height, backgroundColor: 'transparent' }}
-    >
+    <SafeAreaView style={{ width: width, height: height, backgroundColor: 'transparent' }}>
       <View
         style={{
           width: '100%',
@@ -83,13 +59,13 @@ export function OcaCredential({
         <WebView
           automaticallyAdjustContentInsets={false}
           originWhitelist={['*']}
-          ref={webview}
+          ref={webviewRef}
           onError={(syntheticEvent) => {
             const { nativeEvent } = syntheticEvent;
             console.warn('WebView error: ', nativeEvent);
           }}
           onMessage={() => {}}
-          source={require('./test.html')}
+          source={require('./credential-layout.html')}
           incognito={true}
           cacheEnabled={false}
           style={{
