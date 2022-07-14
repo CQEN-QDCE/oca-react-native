@@ -106,7 +106,7 @@ const App = () => {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <OcaCredential height={'80%'} width={'80%'} structure={structure} />
+            <OcaCredential height={'80%'} width={'80%'} oca={data} />
           </View>
         </View>
         <View

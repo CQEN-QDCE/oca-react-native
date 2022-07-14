@@ -154,6 +154,6 @@
     "js-yaml": "^4.1.0",
     "moment": "^2.29.4",
     "oca.js": "^0.1.38",
-    "react-native-webview": "^11.22.2"
+    "react-native-webview": "^11.22.7"
   }
 }
