@@ -18,13 +18,20 @@ export const DateAttribute = ({
   const [date, setDate] = useState<string>();
 
   useEffect(() => {
-    let dataValue: Date | moment.Moment = new Date(attribute.value);
-    if (!dataValue && moment(attribute.value, attribute.format).isValid()) {
-      dataValue = moment(attribute.value, attribute.format);
+    const isValidDate = Date.parse(attribute.value);
+    let currentData: Date | moment.Moment;
+    console.log(isValidDate);
+    if (!isNaN(isValidDate)) {
+      currentData = new Date(attribute.value);
+    } else if (
+      isNaN(isValidDate) &&
+      moment(attribute.value, attribute.format).isValid()
+    ) {
+      currentData = moment(attribute.value, attribute.format);
     } else {
       return setDate(attribute.value);
     }
-    setDate(moment(dataValue).format(attribute.format));
+    setDate(moment(currentData).format(attribute.format));
   }, [attribute.value, attribute.format]);
 
   return (

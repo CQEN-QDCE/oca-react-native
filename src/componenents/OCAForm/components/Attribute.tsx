@@ -19,7 +19,6 @@ export const Attribute = ({
 }: AttributeProps) => {
   const attributeTypeSelector = () => {
     if (attribute.type === 'Date') {
-      console.log('DATE VALUE: ' + attribute.name + ' - ' + attribute.value);
       return (
         <DateAttribute
           attribute={attribute}
