@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
-import { OcaJs } from '../../packages/oca.js-form-core/OcaJs';
+import { StyleSheet, TouchableOpacity, View, Text } from 'react-native';
 import type { OCA } from 'oca.js';
-import getLanguage from './utils/getLanguage';
-import getAttributes from './utils/getAttributes';
-import type { HideShowOptions, StylingOptions } from './types';
+import { getAttributes } from './../getAttributes';
+import type {
+  AttributesValues,
+  HideShowOptions,
+  StylingOptions,
+} from '../types';
 import { Attribute } from './components/Attribute';
+import { createOCAStructure } from '../createOCAStructure';
 
 interface OcaFormProps {
-  oca: OCA | undefined;
+  oca?: OCA;
   deviceLanguage: string;
-  attributeValues: Map<string, string | number>;
+  attributeValues: AttributesValues[];
   stylingOptions?: StylingOptions;
   hideShowOptions?: HideShowOptions;
 }
@@ -27,21 +30,21 @@ const OcaForm = ({
 }: OcaFormProps) => {
   const [shown, setShown] = useState<boolean[]>([]);
   const [attributes, setAttributes] = useState<Array<any>>([]);
-  const ocaJs = new OcaJs({});
-
   useEffect(() => {
-    if (oca) {
-      ocaJs.createStructure(oca).then((ocaStructure) => {
-        const lang = getLanguage(ocaStructure.translations, deviceLanguage);
-        setAttributes(
-          getAttributes(ocaStructure.controls, attributeValues, lang)
-        );
-      });
-    }
+    createOCAStructure(oca).then((ocaStructure) => {
+      console.log('Start');
+      setAttributes(
+        getAttributes({
+          structure: ocaStructure,
+          attributesValues: attributeValues,
+          language: deviceLanguage,
+        })
+      );
+    });
   }, [oca, attributeValues]);
 
   const resetShown = (): void => {
-    setShown(attributes.map(() => true));
+    setShown(attributes.map(() => false));
   };
 
   useEffect(() => {
@@ -54,7 +57,21 @@ const OcaForm = ({
     setShown(newShowState);
   };
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, minWidth: '100%' }}>
+      {hideShowOptions.visibility && (
+        <TouchableOpacity
+          style={styles.hideAllContainer}
+          activeOpacity={1}
+          onPress={() => resetShown()}
+          accessible={true}
+        >
+          {hideShowOptions.labelHideAll ? (
+            hideShowOptions.labelHideAll
+          ) : (
+            <Text style={stylingOptions?.textStyle}>Hide All</Text>
+          )}
+        </TouchableOpacity>
+      )}
       {attributes.map((attr, index) => {
         return (
           <Attribute
@@ -70,5 +87,14 @@ const OcaForm = ({
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  hideAllContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    paddingHorizontal: 25,
+    paddingVertical: 20,
+  },
+});
 
 export default OcaForm;

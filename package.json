@@ -26,8 +26,6 @@
     "typescript": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepare": "bob build",
-    "copy-packFile": "cp ${npm_package_name}-${npm_package_version}.tgz example/tmp/",
-    "postpack": "npm run copy-packFile",
     "release": "release-it",
     "example": "yarn --cwd example",
     "pods": "cd example && pod-install --quiet",
@@ -137,6 +135,7 @@
   "react-native-builder-bob": {
     "source": "src",
     "output": "lib",
+    "module": "commonjs",
     "targets": [
       "commonjs",
       "module",
