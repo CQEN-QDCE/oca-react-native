@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ColorPallet, TextTheme } from '../../theme';
-import type { Attribute } from './types';
+import type { Attribute } from '../types';
 
 interface OcaAttributeProps {
   attribute: Attribute;

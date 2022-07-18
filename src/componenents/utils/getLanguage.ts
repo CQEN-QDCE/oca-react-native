@@ -1,7 +1,7 @@
 import type {
   StructureTranslation,
   Translations,
-} from '../../../packages/oca.js-form-core/types';
+} from '../../packages/oca.js-form-core/types';
 
 const getLanguage = (
   translation: Translations<StructureTranslation>,

@@ -10,7 +10,13 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {OcaCredential, OcaForm, OCA} from 'oca-react-native';
+import {
+  OcaCredential,
+  OcaForm,
+  OCA,
+  createOCAStructure,
+  getAttributes,
+} from 'oca-react-native';
 
 const structure = require('./structure.json');
 
@@ -19,12 +25,37 @@ const App = () => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
-
   const [data, setData] = useState<OCA | undefined>(undefined);
+  const [OCAAttributes, setOCAAttributes] = useState<any>();
+  const [attributeValues] = useState([
+    {name: 'dateOfBirth', value: '02-22-1989'},
+    {name: 'dateOfExpiry', value: '01-21-2025'},
+    {name: 'dateOfIssue', value: new Date().toJSON()},
+    {name: 'documentCode', value: '001-XX'},
+    {name: 'documentNumber', value: '971'},
+    {name: 'documentType', value: 'PASSPORT'},
+    {name: 'fullName', value: 'Juraj Slafkovsky'},
+    {name: 'issuedBy', value: 'XXXXX'},
+    {name: 'issuingState', value: 'XXXXX'},
+    {name: 'issuingStateCode', value: 'XXXXX'},
+    {name: 'nationality', value: 'Slovakia'},
+    {name: 'personalNumber', value: '000 000-0000'},
 
-  const [attributeValues, setAttributeValues] = useState<
-    Map<string, string | number>
-  >(new Map<string, string | number>());
+    {
+      name: 'photoImage',
+      value:
+        'iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeAQAAAADlUEq3AAAAAW9yTlQBz6J3mgAAACZJREFUaN7twTEBAAAAwqD1T+1pCaAAAAAAAAAAAAAAAAAAAAC4AT2GAAGWvJzxAAAAAElFTkSuQmCC',
+    },
+    {name: 'placeOfBirth', value: 'Slovakia'},
+    {name: 'primaryIdentifier', value: 'NA'},
+    {name: 'secondaryIdentifier', value: 'NA'},
+    {name: 'sex', value: 'Male'},
+    {
+      name: 'signatureImage',
+      value:
+        'data;image/jpg,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeAQAAAADlUEq3AAAAAW9yTlQBz6J3mgAAACZJREFUaN7twTEBAAAAwqD1T+1pCaAAAAAAAAAAAAAAAAAAAAC4AT2GAAGWvJzxAAAAAElFTkSuQmCC',
+    },
+  ]);
 
   useEffect(() => {
     fetch(
@@ -35,33 +66,15 @@ const App = () => {
       })
       .then(json => {
         setData(json as OCA);
-        let newAttributeValues = new Map<string, string | number>();
-        newAttributeValues.set('dateOfBirth', '02-22-1989');
-        newAttributeValues.set('dateOfExpiry', '01-21-2025');
-        newAttributeValues.set('dateOfIssue', new Date().toJSON());
-        newAttributeValues.set('documentCode', '001-XX');
-        newAttributeValues.set('documentNumber', '971');
-        newAttributeValues.set('documentType', 'PASSPORT');
-        newAttributeValues.set('fullName', 'Juraj Slafkovsky');
-        newAttributeValues.set('issuedBy', 'XXXXX');
-        newAttributeValues.set('issuingState', 'XXXXX');
-        newAttributeValues.set('issuingStateCode', 'XXXXX');
-        newAttributeValues.set('nationality', 'Slovakia');
-        newAttributeValues.set('personalNumber', '000 000-0000');
-        newAttributeValues.set(
-          'photoImage',
-          'iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeAQAAAADlUEq3AAAAAW9yTlQBz6J3mgAAACZJREFUaN7twTEBAAAAwqD1T+1pCaAAAAAAAAAAAAAAAAAAAAC4AT2GAAGWvJzxAAAAAElFTkSuQmCC',
-        );
-        newAttributeValues.set('placeOfBirth', 'Slovakia');
-        newAttributeValues.set('primaryIdentifier', 'NA');
-        newAttributeValues.set('secondaryIdentifier', 'NA');
-        newAttributeValues.set('sex', 'Male');
-        newAttributeValues.set(
-          'signatureImage',
-          'data;image/jpg,iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeAQAAAADlUEq3AAAAAW9yTlQBz6J3mgAAACZJREFUaN7twTEBAAAAwqD1T+1pCaAAAAAAAAAAAAAAAAAAAAC4AT2GAAGWvJzxAAAAAElFTkSuQmCC',
-        );
-
-        setAttributeValues(newAttributeValues);
+        createOCAStructure(json as OCA).then(OCAStructure => {
+          setOCAAttributes(
+            getAttributes({
+              structure: OCAStructure,
+              attributesValues: attributeValues,
+              language: 'en',
+            }),
+          );
+        });
       })
       .catch();
   }, []);
@@ -92,11 +105,7 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView
-      style={[
-        backgroundStyle,
-        {flex: 1, alignItems: 'center', marginVertical: 15},
-      ]}>
+    <ScrollView style={[backgroundStyle, {flex: 1, marginVertical: 15}]}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <View
         style={{
@@ -131,7 +140,18 @@ const App = () => {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <OcaCredential height={'80%'} width={'80%'} oca={data} attributeValues={new Map(Object.entries(dataRepo.EYz7AI0ePCPnpmTpM0CApKoMzBA5bkwek1vsRBEQuMdQ))} />
+            <OcaCredential
+              height={'80%'}
+              width={'80%'}
+              oca={data}
+              attributeValues={
+                new Map(
+                  Object.entries(
+                    dataRepo.EYz7AI0ePCPnpmTpM0CApKoMzBA5bkwek1vsRBEQuMdQ,
+                  ),
+                )
+              }
+            />
           </View>
         </View>
         <View
@@ -160,15 +180,16 @@ const App = () => {
               ]}>
               OCA Form
             </Text>
-            <ScrollView>
+            <View>
               <OcaForm
                 oca={data}
                 attributeValues={attributeValues}
                 deviceLanguage={'en'}
               />
-              {
-                // OCAForm other possible props
-                /*
+            </View>
+            {
+              // OCAForm other possible props
+              /*
                 stylingOptions?={
                   attributeContainerStyle: StyleProp<ViewStyle>;
                   labelTextStyle?: StyleProp<TextStyle>;
@@ -182,12 +203,55 @@ const App = () => {
                   labelShow?: React.ReactNode;
                 };
                 */
-              }
-            </ScrollView>
+            }
+          </View>
+        </View>
+
+        <View
+          style={{
+            flex: 1,
+            width: '100%',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <View
+            style={{
+              flex: 1,
+              borderRadius: 10,
+              paddingVertical: 10,
+              marginTop: 15,
+              width: '90%',
+              alignItems: 'center',
+              backgroundColor: isDarkMode ? Colors.black : Colors.white,
+            }}>
+            <Text
+              style={[
+                styles.sectionTitle,
+                {
+                  color: isDarkMode ? Colors.white : Colors.black,
+                },
+              ]}>
+              Form from Attributes
+            </Text>
+            <View>
+              {OCAAttributes &&
+                OCAAttributes.map((items: any) => {
+                  return (
+                    <View
+                      style={{
+                        width: '100%',
+                        justifyContent: 'center',
+                      }}>
+                      <Text style={{color: '#000'}}>{items.name}</Text>
+                      <Text style={{color: '#000'}}>{items.value}</Text>
+                    </View>
+                  );
+                })}
+            </View>
           </View>
         </View>
       </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 

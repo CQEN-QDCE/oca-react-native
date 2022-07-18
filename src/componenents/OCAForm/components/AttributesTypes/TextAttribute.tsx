@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleProp, Text, TextStyle, View } from 'react-native';
-import type { Attribute } from '../../types';
-import { attributeTypeStyle } from '../../utils/attributeTypeStyle';
+import type { Attribute } from '../../../types';
+import { attributeTypeStyle } from '../../../utils/attributeTypeStyle';
 
 interface TextAttributeProps {
   attribute: Attribute;
