@@ -16,7 +16,6 @@ export const Attribute = ({
   attributeValue = null,
 }: AttributeProps) => {
   const attributeTypeSelector = () => {
-    console.log('ALOO: ' + attribute.type);
     if (attribute.type === 'Binary') {
       return (
         <BinaryAttribute
