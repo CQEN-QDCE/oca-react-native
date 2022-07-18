@@ -1,4 +1,5 @@
 import type { FormatValueProps } from '../types';
+import type { ControlType } from '../../packages/oca.js-form-core/types';
 
 export const formatBinary = (
   { value, format }: FormatValueProps,
@@ -22,7 +23,7 @@ export const formatBinary = (
     } else {
       uriImage += value;
     }
-    return { type: 'Binary', value: uriImage };
+    return { type: 'Binary' as ControlType, value: uriImage };
   }
-  return { type: 'Text', value: value };
+  return { type: 'Text' as ControlType, value: value };
 };
