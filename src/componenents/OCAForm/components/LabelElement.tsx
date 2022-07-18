@@ -5,7 +5,9 @@ import type { LabelElementProps } from '../../types';
 export const LabelElement = ({ attribute, style }: LabelElementProps) => {
   return (
     <View>
-      <Text style={[styles.label, style]}>{attribute.name}</Text>
+      <Text style={[styles.label, style]} numberOfLines={1}>
+        {attribute.name}
+      </Text>
     </View>
   );
 };
