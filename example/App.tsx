@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {
-  SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
@@ -17,8 +16,6 @@ import {
   createOCAStructure,
   getAttributes,
 } from 'oca-react-native';
-
-const structure = require('./structure.json');
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';

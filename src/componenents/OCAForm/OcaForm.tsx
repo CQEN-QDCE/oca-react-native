@@ -16,6 +16,7 @@ interface OcaFormProps {
   attributeValues: AttributesValues[];
   stylingOptions?: StylingOptions;
   hideShowOptions?: HideShowOptions;
+  maxNumberOfAttributes?: number;
 }
 const defaultHideShowOptions = {
   visibility: true,
@@ -27,6 +28,7 @@ const OcaForm = ({
   attributeValues,
   stylingOptions,
   hideShowOptions = defaultHideShowOptions,
+  maxNumberOfAttributes = 100,
 }: OcaFormProps) => {
   const [shown, setShown] = useState<boolean[]>([]);
   const [attributes, setAttributes] = useState<Array<any>>([]);
@@ -73,16 +75,19 @@ const OcaForm = ({
         </TouchableOpacity>
       )}
       {attributes.map((attr, index) => {
-        return (
-          <Attribute
-            key={index}
-            attribute={attr}
-            shown={!hideShowOptions?.visibility ? true : shown[index]}
-            onToggleViewPressed={() => toggleViewPressed(index)}
-            hideShowOptions={hideShowOptions}
-            stylingOptions={stylingOptions}
-          />
-        );
+        if (index < maxNumberOfAttributes) {
+          return (
+            <Attribute
+              key={index}
+              attribute={attr}
+              shown={!hideShowOptions?.visibility ? true : shown[index]}
+              onToggleViewPressed={() => toggleViewPressed(index)}
+              hideShowOptions={hideShowOptions}
+              stylingOptions={stylingOptions}
+            />
+          );
+        }
+        return;
       })}
     </View>
   );
