@@ -22,7 +22,7 @@ export function OcaCredential({
   let webviewRef = useRef<WebView>(null);
   useEffect(() => {
     if (oca) {
-      ocaJs.createStructure(oca).then(ocaStructure => {
+      ocaJs.createStructure(oca).then((ocaStructure) => {
         if (webviewRef.current) {
           console.log('--------------------------------------------------------------');  
           console.log(JSON.stringify(ocaStructure));   
@@ -32,7 +32,7 @@ export function OcaCredential({
       });
     }
   }, [oca]);
-  
+
   const getInjection = (structureJson: any) => {
     let layout = jsYaml.load(structureJson.credentialLayout, {
       schema: jsYaml.JSON_SCHEMA,
@@ -41,7 +41,9 @@ export function OcaCredential({
       'renderOCACredential2(' +
       JSON.stringify(structureJson) +
       ', ' +
-      JSON.stringify(attributeValues ? Object.fromEntries(attributeValues) : {}) +
+      JSON.stringify(
+        attributeValues ? Object.fromEntries(attributeValues) : {}
+      ) +
       ", { dataVaultUrl: 'https://data-vault.argo.colossi.network/api/v1/files'}, " +
       JSON.stringify(layout) +
       '); true;'
@@ -49,7 +51,9 @@ export function OcaCredential({
   };
 
   return (
-    <SafeAreaView style={{ width: width, height: height, backgroundColor: 'transparent' }}>
+    <SafeAreaView
+      style={{ width: width, height: height, backgroundColor: 'transparent' }}
+    >
       <View
         style={{
           width: '100%',

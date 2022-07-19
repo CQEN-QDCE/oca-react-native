@@ -1,11 +1,9 @@
 import React from 'react';
-import type { AttributeProps } from '../types';
+import type { AttributeProps } from '../../types';
 import { StyleSheet, View } from 'react-native';
 import { LabelElement } from './LabelElement';
 import { ShowElement } from './ShowElement';
 import { TextAttribute } from './AttributesTypes/TextAttribute';
-import { DateAttribute } from './AttributesTypes/DateAttribute';
-import { SelectAttribute } from './AttributesTypes/SelectAttribute';
 import { BinaryAttribute } from './AttributesTypes/BinaryAttribute';
 
 export const Attribute = ({
@@ -18,23 +16,7 @@ export const Attribute = ({
   attributeValue = null,
 }: AttributeProps) => {
   const attributeTypeSelector = () => {
-    if (attribute.type === 'Date') {
-      return (
-        <DateAttribute
-          attribute={attribute}
-          shown={shown}
-          styles={stylingOptions?.textStyle}
-        />
-      );
-    } else if (attribute.type === 'Select') {
-      return (
-        <SelectAttribute
-          attribute={attribute}
-          shown={shown}
-          styles={stylingOptions?.textStyle}
-        />
-      );
-    } else if (attribute.type === 'Binary') {
+    if (attribute.type === 'Binary') {
       return (
         <BinaryAttribute
           attribute={attribute}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleProp, Text, TextStyle, View } from 'react-native';
-import type { Attribute } from '../../types';
-import { attributeTypeStyle } from '../../utils/attributeTypeStyle';
+import type { Attribute } from '../../../types';
+import { attributeTypeStyle } from '../../../utils/attributeTypeStyle';
 
 interface TextAttributeProps {
   attribute: Attribute;
@@ -16,7 +16,7 @@ export const TextAttribute = ({
 }: TextAttributeProps) => {
   return (
     <View style={attributeTypeStyle.textValueContainer}>
-      <Text style={[attributeTypeStyle.text, styles]}>
+      <Text style={[attributeTypeStyle.text, styles]} numberOfLines={200}>
         {shown ? attribute.value : Array(10).fill('\u2022').join('')}
       </Text>
     </View>
