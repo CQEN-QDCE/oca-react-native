@@ -34,7 +34,6 @@ const OcaForm = ({
   const [attributes, setAttributes] = useState<Array<any>>([]);
   useEffect(() => {
     createOCAStructure(oca).then((ocaStructure) => {
-      console.log('Start');
       setAttributes(
         getAttributes({
           structure: ocaStructure,
@@ -62,6 +61,7 @@ const OcaForm = ({
     <View style={{ flex: 1, minWidth: '100%' }}>
       {hideShowOptions.visibility && (
         <TouchableOpacity
+          testID={'reset.shown'}
           style={styles.hideAllContainer}
           activeOpacity={1}
           onPress={() => resetShown()}

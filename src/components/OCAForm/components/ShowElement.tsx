@@ -12,7 +12,11 @@ export const ShowElement = ({
   return (
     <View>
       {hideShowOptions.visibility && (
-        <TouchableOpacity activeOpacity={1} onPress={onToggleViewPressed}>
+        <TouchableOpacity
+          activeOpacity={1}
+          onPress={onToggleViewPressed}
+          testID={'shown.button'}
+        >
           <View>
             {shown ? (
               hideShowOptions?.labelHide ? (
