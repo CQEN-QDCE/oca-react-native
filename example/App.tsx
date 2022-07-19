@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {
+  Alert,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -13,6 +14,8 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {OcaCredential, OcaForm, OCA} from 'oca-react-native';
 
 const structure = require('./structure.json');
+const ocaCredentialLayoutBasic = require('./bundles/oca-credential-layout-basic.json');
+const ocaDigitalPassport = require('./bundles/oca-digital-passport.json');
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -65,7 +68,6 @@ const App = () => {
       })
       .catch();
   }, []);
-
   const dataRepo = {
     EYz7AI0ePCPnpmTpM0CApKoMzBA5bkwek1vsRBEQuMdQ: {
       drivingLicenseID: 'I12345678',
@@ -90,7 +92,6 @@ const App = () => {
       issueDate: '09/06/2010',
     },
   };
-
   return (
     <SafeAreaView
       style={[
@@ -129,9 +130,9 @@ const App = () => {
               height: 250,
               backgroundColor: 'transparent',
               justifyContent: 'center',
-              alignItems: 'center',
+              alignItems: 'center', 
             }}>
-            <OcaCredential height={'80%'} width={'80%'} oca={data} attributeValues={new Map(Object.entries(dataRepo.EYz7AI0ePCPnpmTpM0CApKoMzBA5bkwek1vsRBEQuMdQ))} />
+            <OcaCredential height={'100%'} width={'100%'} oca={ocaCredentialLayoutBasic} attributeValues={new Map(Object.entries(dataRepo.EYz7AI0ePCPnpmTpM0CApKoMzBA5bkwek1vsRBEQuMdQ))} />
           </View>
         </View>
         <View

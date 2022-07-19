@@ -1,0 +1,1688 @@
+{
+    "capture_base": {
+      "type": "spec/capture_base/1.0",
+      "classification": "GICS:45102010",
+      "attributes": {
+        "dateOfBirth": "Date",
+        "dateOfExpiry": "Date",
+        "dateOfIssue": "Date",
+        "documentCode": "Text",
+        "documentNumber": "Text",
+        "documentType": "Text",
+        "fullName": "Text",
+        "issuedBy": "Text",
+        "issuingState": "Text",
+        "issuingStateCode": "Text",
+        "nationality": "Text",
+        "optionalData": "Text",
+        "optionalDocumentData": "Text",
+        "optionalPersonalData": "Text",
+        "personalNumber": "Text",
+        "photoImage": "Binary",
+        "placeOfBirth": "Text",
+        "primaryIdentifier": "Text",
+        "secondaryIdentifier": "Text",
+        "sex": "Text",
+        "signatureImage": "Binary"
+      },
+      "flagged_attributes": [
+        "documentNumber",
+        "fullName",
+        "primaryIdentifier",
+        "secondaryIdentifier",
+        "dateOfBirth",
+        "personalNumber",
+        "placeOfBirth",
+        "optionalPersonalData",
+        "optionalDocumentData",
+        "signatureImage",
+        "photoImage",
+        "optionalData"
+      ]
+    },
+    "overlays": [
+      {
+        "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+        "type": "spec/overlays/meta/1.0",
+        "language": "fr",
+        "name": "VIZ pour passeport numérique",
+        "description": "Un formulaire à utiliser pour capturer les données de la zone d'inspection visuelle pour un passeport numérique"
+      },
+      {
+        "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+        "type": "spec/overlays/format/1.0",
+        "attr_formats": {
+          "dateOfBirth": "YYnMMnDD",
+          "dateOfExpiry": "YYnMMnDD",
+          "dateOfIssue": "YYnMMnDD",
+          "documentCode": "P[A-Z0-9]{1}",
+          "documentNumber": "[A-Z0-9]{9}",
+          "issuingStateCode": "[A-Z]{3}",
+          "personalNumber": "[A-Z0-9]{14}",
+          "photoImage": "image/jpeg",
+          "signatureImage": "image/jpeg"
+        }
+      },
+      {
+        "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+        "type": "spec/overlays/label/1.0",
+        "language": "fr",
+        "attr_labels": {
+          "dateOfBirth": "Date de naissance",
+          "dateOfExpiry": "Date d'expiration",
+          "dateOfIssue": "Date d'émission",
+          "documentCode": "Code du document",
+          "documentNumber": "Numéro de passeport",
+          "documentType": "Document",
+          "fullName": "Nom",
+          "issuedBy": "Autorité ou organisme émetteur",
+          "issuingState": "État ou organisme émetteur (au complet)",
+          "issuingStateCode": "État ou organisme émetteur (en code)",
+          "nationality": "Nationalité",
+          "optionalData": "Éléments de données facultatifs",
+          "optionalDocumentData": "Éléments de données de document facultatifs",
+          "optionalPersonalData": "Éléments de données personnelles facultatifs",
+          "personalNumber": "Numéro personnel",
+          "photoImage": "Caractéristique d'identification",
+          "placeOfBirth": "Lieu de naissance",
+          "primaryIdentifier": "Identifiant principal",
+          "secondaryIdentifier": "Identifiant secondaire",
+          "sex": "Sexe",
+          "signatureImage": "Signature du titulaire ou marque usuelle"
+        },
+        "attr_categories": [
+          "_cat-1_",
+          "_cat-2_",
+          "_cat-3_",
+          "_cat-4_",
+          "_cat-5_",
+          "_cat-6_"
+        ],
+        "cat_labels": {
+          "_cat-1_": "En-tête obligatoire",
+          "_cat-2_": "Éléments de données personnelles obligatoires et facultatifs",
+          "_cat-3_": "Éléments de données obligatoires et facultatifs du document",
+          "_cat-4_": "Signature obligatoire du titulaire ou marque usuelle (original ou reproduction)",
+          "_cat-5_": "Élément d'identification obligatoire",
+          "_cat-6_": "Éléments de données facultatifs"
+        }
+      },
+      {
+        "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+        "type": "spec/overlays/unit/1.0",
+        "metric_system": "SI",
+        "attr_units": {
+          "optionalPersonalData": "cm"
+        }
+      },
+      {
+        "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+        "type": "spec/overlays/information/1.0",
+        "language": "fr",
+        "attr_information": {
+          "dateOfBirth": "Date de naissance du titulaire enregistrée par l'État ou l'organisme émetteur. Si la date de naissance est inconnue, consultez le Doc 9303-3 pour obtenir des conseils.",
+          "dateOfExpiry": "Date d'expiration du MRP. Pour plus de détails, voir Doc 9303-3.",
+          "dateOfIssue": "Pour plus de détails, voir Doc 9303-3.",
+          "documentCode": "Lettre majuscule P pour désigner un MRP. Une lettre majuscule supplémentaire peut être utilisée, en position de caractère après la lettre P et à la discrétion de l'État ou de l'organisation émetteur, pour désigner d'autres types de passeports tels que le MRP délivré au personnel diplomatique, un MRP délivré pour les voyages d'affaires du gouvernement, ou un passeport délivré à des fins particulières.",
+          "documentNumber": "Tel qu'indiqué par l'État ou l'organisation émetteur pour identifier de manière unique le document parmi tous les autres DVLM émis par l'État ou l'organisation. Pour plus de détails, voir Doc 9303-3.",
+          "documentType": "Le mot pour \"passeport\" dans la langue de l'État ou de l'organisation émetteur.",
+          "fullName": "Le nom complet du titulaire, tel qu'identifié par l'État ou l'organisme émetteur. Pour plus de détails, voir Doc 9303-3.",
+          "issuedBy": "Autorité ou organisme émetteur du MRP. Ce champ est utilisé pour indiquer l'autorité ou l'organisme émetteur et, éventuellement, sa localisation, qui peut être personnalisée dans ce champ. Pour plus de détails, voir Doc 9303-3.",
+          "issuingState": "Le nom de l'État ou de l'organisme responsable de la délivrance du MRP doit être indiqué en toutes lettres.",
+          "issuingStateCode": "Comme abrégé dans le code à trois lettres spécifié dans le Doc 9303-3.",
+          "nationality": "Pour plus de détails, voir Doc 9303-3.",
+          "optionalData": "Éléments de données facultatifs supplémentaires à la discrétion de l'État ou de l'organisation émetteur. Pour plus de détails, voir Doc 9303-3.",
+          "optionalDocumentData": "Éléments de données facultatifs relatifs au document. Pour plus de détails, voir Doc 9303-3.",
+          "optionalPersonalData": "Éléments de données personnelles facultatifs, par ex. numéro d'identification personnel ou empreinte digitale, à la discrétion de l'État ou de l'organisation émetteur. Si une empreinte digitale est incluse dans ce champ, elle doit être présentée comme une représentation 1:1 de l'original. Si une date est incluse, elle doit suivre le mode de présentation décrit dans le Doc 9303-3.",
+          "personalNumber": "Champ éventuellement utilisé pour le numéro d'identification personnel attribué au titulaire par l'État ou l'organisme émetteur. Pour plus de détails, voir Doc 9303-3.",
+          "photoImage": "Ce champ doit contenir un portrait du titulaire. Le portrait ne doit pas être plus grand que 45,0 mm x 35,0 mm (1,77 po x 1,38 po) ni inférieure à 32,0 mm x 26,0 mm (1,26 po x 1,02 po). La position du champ concerné doit être alignée à gauche des zones II, III et IV. Voir le Doc 9303-3 pour des spécifications supplémentaires pour le portrait.",
+          "placeOfBirth": "Champ éventuellement utilisé pour la ville et l'État du lieu de naissance du titulaire. Reportez-vous au Doc 9303-3 pour plus de détails.",
+          "primaryIdentifier": "Élément(s) prédominant(s) du nom du titulaire tel que décrit dans le Doc 9303-3. Dans les cas où le ou les éléments prédominants du nom du titulaire (par exemple, lorsqu'il s'agit de noms composés) ne peuvent pas être indiqués en entier ou dans le même ordre, en raison du manque d'espace des champs 06 et/ou 07 ou pratique nationale, le ou les composants les plus importants (tels que déterminés par l'État ou l'organisation) de l'identifiant primaire doivent être insérés.",
+          "secondaryIdentifier": "Élément(s) secondaire(s) du nom du titulaire tel que décrit dans le Doc 9303-3. Le ou les éléments les plus importants (tels que déterminés par l'État ou l'organisation) de l'identifiant secondaire du titulaire doivent être insérés en entier, jusqu'aux dimensions maximales du cadre de champ. D'autres composants, si nécessaire, peuvent être représentés par des initiales. Lorsque le nom du titulaire n'a qu'un ou plusieurs éléments prédominants, ce champ de données doit rester vide. Un État peut éventuellement utiliser toute la zone comprenant les champs 06 et 07 comme un champ unique. Dans ce cas, l'identifiant primaire doit être placé en premier, suivi d'une virgule et d'un espace, suivi de l'identifiant secondaire.",
+          "sex": "Sexe du titulaire, à préciser par l'utilisation de l'initiale unique couramment utilisée dans la langue de l'État ou de l'organisation où le document est délivré et, si une traduction en anglais, français ou espagnol est nécessaire, suivie d'une oblique et d'une majuscule F pour femelle, M pour mâle ou X pour non spécifié.",
+          "signatureImage": "Au choix de l'État ou de l'organisme émetteur, la signature ou la marque usuelle peut être située dans la zone VI. La taille du champ à attribuer à la signature ou à la marque usuelle sur la page attenante est à la discrétion de l'État ou de l'organisme émetteur, sous réserve des limites dimensionnelles globales du MRP. Pour plus de détails, voir Doc 9303-3."
+        }
+      },
+      {
+        "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+        "type": "spec/overlays/entry/1.0",
+        "language": "fr",
+        "attr_entries": {
+          "documentType": {
+            "PASSPORT": "PASSEPORT"
+          },
+          "issuingState": "EL_PI1HJ7qyGdT3yrH7kXqwWAv0-lxGLXEtzN8C6zQt4",
+          "issuingStateCode": "EnmO60xL2IsIv-_AC2PgLdJtzqsfuNqa8BihsiNWgz5o",
+          "nationality": "E3iUl-Nc2Tb1d-LBuCsd1JJJH1ppjFtIxYyX7_VB_d3c",
+          "sex": {
+            "F": "Femelle",
+            "M": "Mâle",
+            "X": "Non spécifié"
+          }
+        }
+      },
+      {
+        "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+        "type": "spec/overlays/meta/1.0",
+        "language": "en",
+        "name": "VIZ for Digital Passport",
+        "description": "A form to be used for capturing Visual Inspection Zone data for a Digital Passport"
+      },
+      {
+        "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+        "type": "spec/overlays/form_layout/1.0",
+        "layout": {
+          "config": {
+            "css": {
+              "style": "form {\n  background-color: white;\n  font-family: 'Lato', 'sans-serif';\n  color: #575756;\n  padding: 20px;\n  border: 1px solid rgba(0, 0, 0, .1);\n  border-radius: 5px;\n  box-shadow: 0 5px 8px 0 rgb(0 0 0 / 10%), 0 3px 10px 0 rgb(0 0 0 / 10%);\n} ._category h1, h2, h3, h4, h5, h6 {\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 1.15em;\n  margin: 0.3em 0;\n} ._category h1 { font-size: 22px; } ._category h2 { font-size: 18px; } ._category {\n  border: 0;\n  border-bottom: 2px dashed #0000004d;\n  margin: 10px 0 20px 0;\n}\n._control {\n  margin: 5px 0;\n} ._label {\n  display: block;\n} ._input {\n  padding: 0 0.5em;\n}\n._input[multiple] {\n  height: 6.5em;\n  display: grid;\n  align-items: center;\n}\n._input, .language {\n  margin: 2px 0;\n  width: 100%;\n  height: 2.5em;\n  background-color: white;\n  border-radius: 3px;\n  border-width: 1px;\n} ._information {\n  color: #6A6A6A;\n  font-size: 14px;\n  font-style: italic;\n  line-height: 1.5;\n  text-align: justify;\n} .language {\n  width: 100px;\n  height: 1.75em;\n  float: right;\n} #submit {\n  margin-top: 10px;\n  width: 150px;\n  height: 2em;\n  background-color: white;\n  border-width: 1px;\n  border-radius: 3px;\n} #submit:hover {\n  background-color: lightgray;\n}"
+            }
+          },
+          "elements": [
+            {
+              "type": "meta",
+              "config": {
+                "css": {
+                  "style": "justify-content: space-between;"
+                }
+              },
+              "parts": [
+                {
+                  "name": "language",
+                  "config": {
+                    "css": {
+                      "classes": [
+                        "language"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "name": "name",
+                  "config": {
+                    "css": {
+                      "style": "font-size: 24px; font-weight: 700; margin: 10px 0;"
+                    }
+                  }
+                },
+                {
+                  "name": "description",
+                  "config": {
+                    "css": {
+                      "style": "font-size: 16px; font-weight: 300; line-height: 1.5;"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "id": "_cat-1_"
+            },
+            {
+              "type": "attribute",
+              "name": "documentType",
+              "parts": [
+                {
+                  "name": "label"
+                },
+                {
+                  "name": "input"
+                },
+                {
+                  "name": "information"
+                }
+              ]
+            },
+            {
+              "type": "attribute",
+              "name": "issuingStateCode",
+              "parts": [
+                {
+                  "name": "label"
+                },
+                {
+                  "name": "input"
+                },
+                {
+                  "name": "information"
+                }
+              ]
+            },
+            {
+              "type": "attribute",
+              "name": "documentNumber",
+              "parts": [
+                {
+                  "name": "label"
+                },
+                {
+                  "name": "input"
+                },
+                {
+                  "name": "information"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "id": "_cat-2_"
+            },
+            {
+              "type": "attribute",
+              "name": "primaryIdentifier",
+              "parts": [
+                {
+                  "name": "label"
+                },
+                {
+                  "name": "input"
+                },
+                {
+                  "name": "information"
+                }
+              ]
+            },
+            {
+              "type": "attribute",
+              "name": "secondaryIdentifier",
+              "parts": [
+                {
+                  "name": "label"
+                },
+                {
+                  "name": "input"
+                },
+                {
+                  "name": "information"
+                }
+              ]
+            },
+            {
+              "type": "attribute",
+              "name": "nationality",
+              "parts": [
+                {
+                  "name": "label"
+                },
+                {
+                  "name": "input"
+                },
+                {
+                  "name": "information"
+                }
+              ]
+            },
+            {
+              "type": "attribute",
+              "name": "dateOfBirth",
+              "parts": [
+                {
+                  "name": "label"
+                },
+                {
+                  "name": "input"
+                },
+                {
+                  "name": "information"
+                }
+              ]
+            },
+            {
+              "type": "attribute",
+              "name": "placeOfBirth",
+              "parts": [
+                {
+                  "name": "label"
+                },
+                {
+                  "name": "input"
+                },
+                {
+                  "name": "information"
+                }
+              ]
+            },
+            {
+              "type": "attribute",
+              "name": "sex",
+              "parts": [
+                {
+                  "name": "label"
+                },
+                {
+                  "name": "input"
+                },
+                {
+                  "name": "information"
+                }
+              ]
+            },
+            {
+              "type": "attribute",
+              "name": "optionalPersonalData",
+              "parts": [
+                {
+                  "name": "label"
+                },
+                {
+                  "name": "input"
+                },
+                {
+                  "name": "information"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "id": "_cat-3_"
+            },
+            {
+              "type": "attribute",
+              "name": "dateOfIssue",
+              "parts": [
+                {
+                  "name": "label"
+                },
+                {
+                  "name": "input"
+                },
+                {
+                  "name": "information"
+                }
+              ]
+            },
+            {
+              "type": "attribute",
+              "name": "issuedBy",
+              "parts": [
+                {
+                  "name": "label"
+                },
+                {
+                  "name": "input"
+                },
+                {
+                  "name": "information"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "id": "_cat-4_"
+            },
+            {
+              "type": "attribute",
+              "name": "signatureImage",
+              "parts": [
+                {
+                  "name": "label"
+                },
+                {
+                  "name": "input"
+                },
+                {
+                  "name": "information"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "id": "_cat-5_"
+            },
+            {
+              "type": "attribute",
+              "name": "photoImage",
+              "parts": [
+                {
+                  "name": "label"
+                },
+                {
+                  "name": "input"
+                },
+                {
+                  "name": "information"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+        "type": "spec/overlays/information/1.0",
+        "language": "en",
+        "attr_information": {
+          "dateOfBirth": "Holder’s date of birth as recorded by the issuing State or organization. If the date of birth is unknown, see Doc 9303-3 for guidance.",
+          "dateOfExpiry": "Date of expiry of the MRP. For additional details see Doc 9303-3.",
+          "dateOfIssue": "For details see Doc 9303-3.",
+          "documentCode": "Capital letter P to designate an MRP. One additional capital letter may be used, in the character position after the letter P and at the discretion of the issuing State or organization, to designate other types of passports such as MRP issued to diplomatic staff, an MRP issued for travel on government business, or a passport issued for a special purpose.",
+          "documentNumber": "As given by the issuing State or organization to uniquely identify the document from all other MRTDs issued by the State or organization. For additional details see Doc 9303-3.",
+          "documentType": "The word for “passport” in the language of the issuing State or organization.",
+          "fullName": "The full name of the holder, as identified by the issuing State or organization. For additional details see Doc 9303-3.",
+          "issuedBy": "Authority or issuing organization for the MRP. This field shall be used to indicate the issuing authority or issuing organization and, optionally, its location, which may be personalized within this field. For additional details see Doc 9303-3.",
+          "issuingState": "The name of the State or organization responsible for issuing the MRP shall be displayed in full.",
+          "issuingStateCode": "As abbreviated in the three-letter code specified in Doc 9303-3.",
+          "nationality": "For details see Doc 9303-3.",
+          "optionalData": "Additional optional data elements at the discretion of the issuing State or organization. For additional details see Doc 9303-3.",
+          "optionalDocumentData": "Optional data elements relating to the document. For additional details see Doc 9303-3.",
+          "optionalPersonalData": "Optional personal data elements e.g. personal identification number or fingerprint, at the discretion of the issuing State or organization. If a fingerprint is included in this field, it should be presented as a 1:1 representation of the original. If a date is included, it shall follow the form of presentation described in Doc 9303-3.",
+          "personalNumber": "Field optionally used for personal identification number given to holder by the issuing State or organization. For additional details see Doc 9303-3. ",
+          "photoImage": "This field shall contain a portrait of the holder. The portrait shall not be larger than 45.0 mm x 35.0 mm_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x005F_x000B_(1.77 in x 1.38 in) nor smaller than 32.0 mm x 26.0 mm (1.26 in x 1.02 in). The position of the field concerned shall be aligned to the left of Zones II, III and IV. See Doc 9303-3 for additional specifications for the portrait.",
+          "placeOfBirth": "Field optionally used for city and State of the holder’s birthplace. Refer to Doc 9303-3 for further details. ",
+          "primaryIdentifier": "Predominant component(s) of the name of the holder as described in Doc 9303-3. In cases where the predominant component(s) of the name of the holder (e.g. where this consists of composite names) cannot be shown in full or in the same order, owing to space limitations of Field(s) 06 and/or 07 or national practice, the most important component(s) (as determined by the State or organization) of the primary identifier shall be inserted.",
+          "secondaryIdentifier": "Secondary component(s) of the name of the holder as described in Doc 9303-3. The most important component(s) (as determined by the State or organization) of the secondary identifier of the holder shall be inserted in full, up to the maximum dimensions of the field frame. Other components, where necessary, may be represented by initials. Where the holder’s name has only predominant component(s), this data field shall be left blank. A State may optionally utilize the whole zone comprising Fields 06 and 07 as a single field. In such a case, the primary identifier shall be placed first, followed by a comma and a space, followed by the secondary identifier. ",
+          "sex": "Sex of the holder, to be specified by use of the single initial commonly used in the language of the State or organization where the document is issued and, if translation into English, French or Spanish is necessary, followed by an oblique and the capital letter F for female, M for male, or X for unspecified.",
+          "signatureImage": "At the discretion of the issuing State or organization, the signature or usual mark may be located in Zone VI. The size of the field to be allocated to the signature or usual mark on the adjoining page shall be at the discretion of the issuing State or organization, subject to the overall dimensional limits of the MRP. For additional details see Doc 9303-3."
+        }
+      },
+      {
+        "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+        "type": "spec/overlays/conformance/1.0",
+        "attr_conformance": {
+          "documentCode": "M",
+          "issuingState": "M"
+        }
+      },
+      {
+        "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+        "type": "spec/overlays/character_encoding/1.0",
+        "default_character_encoding": "utf-8",
+        "attr_character_encoding": {
+          "dateOfBirth": "utf-8",
+          "dateOfExpiry": "utf-8",
+          "dateOfIssue": "utf-8",
+          "documentCode": "utf-8",
+          "documentNumber": "utf-8",
+          "documentType": "utf-8",
+          "fullName": "utf-8",
+          "issuedBy": "utf-8",
+          "issuingState": "utf-8",
+          "issuingStateCode": "utf-8",
+          "nationality": "utf-8",
+          "optionalData": "utf-8",
+          "optionalDocumentData": "utf-8",
+          "optionalPersonalData": "utf-8",
+          "personalNumber": "utf-8",
+          "photoImage": "base64",
+          "placeOfBirth": "utf-8",
+          "primaryIdentifier": "utf-8",
+          "secondaryIdentifier": "utf-8",
+          "sex": "utf-8",
+          "signatureImage": "base64"
+        }
+      },
+      {
+        "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+        "type": "spec/overlays/entry_code_mapping/1.0",
+        "attr_mapping": {
+          "sex": [
+            "F:K",
+            "X:unknown"
+          ]
+        }
+      },
+      {
+        "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+        "type": "spec/overlays/entry_code/1.0",
+        "attr_entry_codes": {
+          "documentType": [
+            "PASSPORT"
+          ],
+          "issuingState": "EWSSp1MZQfVWl-u4l4eDprRp-bLE-xLe0gSTNVwkuqNA",
+          "issuingStateCode": "EWSSp1MZQfVWl-u4l4eDprRp-bLE-xLe0gSTNVwkuqNA",
+          "nationality": "EcOqelFTDay0reu_CesOIUfWVF7htg4IvSOrrXuIMaXU",
+          "sex": [
+            "F",
+            "M",
+            "X"
+          ]
+        }
+      },
+      {
+        "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+        "type": "spec/overlays/mapping/1.0",
+        "attr_mapping": {
+          "optionalPersonalData": "height"
+        }
+      },
+      {
+        "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+        "type": "spec/overlays/conditional/1.0",
+        "attr_conditions": {
+          "documentCode": "${0}=='PASSPORT'"
+        },
+        "attr_dependencies": {
+          "documentCode": [
+            "documentType"
+          ]
+        }
+      },
+      {
+        "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+        "type": "spec/overlays/label/1.0",
+        "language": "en",
+        "attr_labels": {
+          "dateOfBirth": "Date of birth",
+          "dateOfExpiry": "Date of expiry",
+          "dateOfIssue": "Date of issue",
+          "documentCode": "Document code",
+          "documentNumber": "Passport Number",
+          "documentType": "Document",
+          "fullName": "Name",
+          "issuedBy": "Authority or issuing organization",
+          "issuingState": "Issuing State or organization (in full)",
+          "issuingStateCode": "Issuing State or organization (in code)",
+          "nationality": "Nationality",
+          "optionalData": "Optional data elements",
+          "optionalDocumentData": "Optional document data elements",
+          "optionalPersonalData": "Optional personal data elements",
+          "personalNumber": "Personal number",
+          "photoImage": "Identification feature",
+          "placeOfBirth": "Place of birth",
+          "primaryIdentifier": "Primary Identifier",
+          "secondaryIdentifier": "Secondary Identifier",
+          "sex": "Sex",
+          "signatureImage": "Holder’s signature or usual mark"
+        },
+        "attr_categories": [
+          "_cat-1_",
+          "_cat-2_",
+          "_cat-3_",
+          "_cat-4_",
+          "_cat-5_",
+          "_cat-6_"
+        ],
+        "cat_labels": {
+          "_cat-1_": "Mandatory header",
+          "_cat-2_": "Mandatory and optional personal data elements",
+          "_cat-3_": "Mandatory and optional document data elements",
+          "_cat-4_": "Mandatory holder’s signature or usual mark (original or reproduction)",
+          "_cat-5_": "Mandatory identification feature",
+          "_cat-6_": "Optional data elements"
+        }
+      },
+      {
+        "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+        "type": "spec/overlays/entry/1.0",
+        "language": "en",
+        "attr_entries": {
+          "documentType": {
+            "PASSPORT": "PASSPORT"
+          },
+          "issuingState": "ECfBoOwdcHhQfNtWA5qTKOo9egoxHKXxby6R8Jujpk-o",
+          "issuingStateCode": "EnmO60xL2IsIv-_AC2PgLdJtzqsfuNqa8BihsiNWgz5o",
+          "nationality": "EAr0uvi1743P2VXXqd08a-yX8K_aejHCkdjaW8lWZ_xw",
+          "sex": {
+            "F": "Female",
+            "M": "Male",
+            "X": "Unspecified"
+          }
+        }
+      },
+      {
+        "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+        "type": "spec/overlays/credential_layout/1.0",
+        "layout": {
+          "version": "beta-1",
+          "config": {
+            "css": {
+              "width": "980px",
+              "height": "1400px",
+              "style": "@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap'); @font-face {\n  font-family: 'Euphemia';\n  src: url('https://data-vault.argo.colossi.network/api/v1/files/zQmVwGQNiz8nGHJW1ZvgCyi1Sx1WZeGwJRfdyLedxUJG1Np');\n} @font-face {\n  font-family: 'OCRB 10 Pitch BT';\n  src: url('https://data-vault.argo.colossi.network/api/v1/files/zQmPWK7khoAebbJDZsmgQgjyH2hsThYYPBKWbSbV5tn8NrC');\n} .header {\n  font-size: 23px;\n  color: rgb(35, 48, 103);\n  font-family: 'Nanum Gothic';\n  letter-spacing: 1.2px;\n} .attribute-label {\n  font-size: 11px;\n  color: rgb(35, 48, 103);\n  font-family: 'Nanum Gothic';\n} .attribute-label-wide {\n  font-size: 10px;\n  letter-spacing: 0.65px;\n  color: rgb(35, 48, 103);\n  font-family: 'Nanum Gothic';\n} .data-input-uppercase {\n  font-size: 21px;\n  color: rgb(34, 34, 34);\n  font-family: Euphemia;\n  text-transform: uppercase;\n} .data-input {\n  font-size: 19px;\n  color: rgb(34, 34, 34);\n  font-family: Euphemia;\n}"
+            }
+          },
+          "pages": [
+            {
+              "config": {
+                "css": {
+                  "style": "width: 980px; height: 700px; margin: 0;",
+                  "background_image": "SAI:zQmf4NGbt4q7ufjK1dNaQdMaJgGLXigAYJWXGc1cjaASXxc"
+                },
+                "name": "Page 0"
+              },
+              "elements": [
+                {
+                  "type": "row",
+                  "config": {
+                    "css": {
+                      "style": "height: 32px;"
+                    }
+                  }
+                },
+                {
+                  "type": "row",
+                  "elements": [
+                    {
+                      "type": "col",
+                      "size": "4",
+                      "config": {
+                        "css": {
+                          "style": "padding-right: 0;"
+                        }
+                      },
+                      "elements": [
+                        {
+                          "type": "row",
+                          "config": {
+                            "css": {
+                              "style": "height: 130px;",
+                              "classes": [
+                                "header"
+                              ]
+                            }
+                          },
+                          "elements": [
+                            {
+                              "type": "col",
+                              "size": "8",
+                              "config": {
+                                "css": {
+                                  "style": "text-align: right; padding-right: 30px;"
+                                }
+                              },
+                              "elements": [
+                                {
+                                  "type": "row",
+                                  "elements": [
+                                    {
+                                      "type": "col",
+                                      "elements": [
+                                        {
+                                          "type": "layout-label",
+                                          "name": "passport"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "col",
+                              "size": "4"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "row",
+                          "config": {
+                            "css": {
+                              "style": "margin-top: 20px;"
+                            }
+                          },
+                          "elements": [
+                            {
+                              "type": "col",
+                              "size": "3"
+                            },
+                            {
+                              "type": "col",
+                              "size": "7",
+                              "config": {
+                                "css": {
+                                  "style": "padding-left: 4px; padding-right: 0;"
+                                }
+                              },
+                              "elements": [
+                                {
+                                  "type": "attribute",
+                                  "name": "photoImage",
+                                  "config": {
+                                    "css": {
+                                      "style": "height: 281px; width: 203px;"
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "col",
+                              "size": "2"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "col",
+                      "size": "8",
+                      "config": {
+                        "css": {
+                          "style": "padding-left: 0; margin-left: -1px;"
+                        }
+                      },
+                      "elements": [
+                        {
+                          "type": "row",
+                          "config": {
+                            "css": {
+                              "classes": [
+                                "header"
+                              ]
+                            }
+                          },
+                          "elements": [
+                            {
+                              "type": "attribute",
+                              "name": "issuingState",
+                              "config": {
+                                "css": {
+                                  "style": "letter-spacing: 0.2px;"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "row",
+                          "config": {
+                            "css": {
+                              "style": "margin-top: 16px;",
+                              "classes": [
+                                "attribute-label"
+                              ]
+                            }
+                          },
+                          "elements": [
+                            {
+                              "type": "col",
+                              "size": "3",
+                              "elements": [
+                                {
+                                  "type": "row",
+                                  "elements": [
+                                    {
+                                      "type": "text",
+                                      "content": "Type"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "row",
+                                  "elements": [
+                                    {
+                                      "type": "code",
+                                      "name": "documentType",
+                                      "config": {
+                                        "css": {
+                                          "classes": [
+                                            "data-input-uppercase"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "col",
+                              "size": "3",
+                              "config": {
+                                "css": {
+                                  "style": "margin-left: -20px;"
+                                }
+                              },
+                              "elements": [
+                                {
+                                  "type": "row",
+                                  "elements": [
+                                    {
+                                      "type": "text",
+                                      "content": "Code"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "row",
+                                  "elements": [
+                                    {
+                                      "type": "code",
+                                      "name": "issuingStateCode",
+                                      "config": {
+                                        "css": {
+                                          "classes": [
+                                            "data-input-uppercase"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "col",
+                              "size": "6",
+                              "elements": [
+                                {
+                                  "type": "row",
+                                  "config": {
+                                    "css": {
+                                      "style": "height: 26px;"
+                                    }
+                                  },
+                                  "elements": [
+                                    {
+                                      "type": "label",
+                                      "name": "documentNumber",
+                                      "config": {
+                                        "css": {
+                                          "style": "letter-spacing: 0.3px;"
+                                        }
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "row",
+                                  "elements": [
+                                    {
+                                      "type": "attribute",
+                                      "name": "documentNumber",
+                                      "config": {
+                                        "css": {
+                                          "classes": [
+                                            "data-input-uppercase"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "row",
+                          "config": {
+                            "css": {
+                              "style": "margin-top: -6px; font-size: 10.5px;",
+                              "classes": [
+                                "attribute-label"
+                              ]
+                            }
+                          },
+                          "elements": [
+                            {
+                              "type": "col",
+                              "config": {
+                                "css": {
+                                  "style": "letter-spacing: 0.2px;"
+                                }
+                              },
+                              "elements": [
+                                {
+                                  "type": "row",
+                                  "config": {
+                                    "css": {
+                                      "style": "height: 24px;"
+                                    }
+                                  },
+                                  "elements": [
+                                    {
+                                      "type": "text",
+                                      "content": "1",
+                                      "config": {
+                                        "css": {
+                                          "style": "padding-right: 5px;"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "layout-label",
+                                      "name": "surname"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "row",
+                                  "elements": [
+                                    {
+                                      "type": "attribute",
+                                      "name": "primaryIdentifier",
+                                      "config": {
+                                        "css": {
+                                          "style": "margin-top: -1px; margin-bottom: 1px;",
+                                          "classes": [
+                                            "data-input"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "row",
+                          "config": {
+                            "css": {
+                              "style": "margin-top: 0px; font-size: 10.5px;",
+                              "classes": [
+                                "attribute-label"
+                              ]
+                            }
+                          },
+                          "elements": [
+                            {
+                              "type": "col",
+                              "config": {
+                                "css": {
+                                  "style": "letter-spacing: 0.2px;"
+                                }
+                              },
+                              "elements": [
+                                {
+                                  "type": "row",
+                                  "config": {
+                                    "css": {
+                                      "style": "height: 24px;"
+                                    }
+                                  },
+                                  "elements": [
+                                    {
+                                      "type": "text",
+                                      "content": "2",
+                                      "config": {
+                                        "css": {
+                                          "style": "padding-right: 5px;"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "layout-label",
+                                      "name": "given-name"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "row",
+                                  "elements": [
+                                    {
+                                      "type": "attribute",
+                                      "name": "secondaryIdentifier",
+                                      "config": {
+                                        "css": {
+                                          "style": "margin-top: -2px; margin-bottom: 2px;",
+                                          "classes": [
+                                            "data-input"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "row",
+                          "config": {
+                            "css": {
+                              "style": "margin-top: 0px;",
+                              "classes": [
+                                "attribute-label"
+                              ]
+                            }
+                          },
+                          "elements": [
+                            {
+                              "type": "col",
+                              "config": {
+                                "css": {
+                                  "style": "letter-spacing: 0.25px;"
+                                }
+                              },
+                              "elements": [
+                                {
+                                  "type": "row",
+                                  "config": {
+                                    "css": {
+                                      "style": "height: 26px;"
+                                    }
+                                  },
+                                  "elements": [
+                                    {
+                                      "type": "text",
+                                      "content": "3",
+                                      "config": {
+                                        "css": {
+                                          "style": "padding-right: 5px;"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "label",
+                                      "name": "nationality"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "row",
+                                  "elements": [
+                                    {
+                                      "type": "attribute",
+                                      "name": "nationality",
+                                      "config": {
+                                        "css": {
+                                          "style": "margin-top: -2px; margin-bottom: 2px;",
+                                          "classes": [
+                                            "data-input"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "row",
+                          "config": {
+                            "css": {
+                              "style": "margin-top: 0px;",
+                              "classes": [
+                                "attribute-label-wide"
+                              ]
+                            }
+                          },
+                          "elements": [
+                            {
+                              "type": "col",
+                              "size": "5",
+                              "elements": [
+                                {
+                                  "type": "row",
+                                  "config": {
+                                    "css": {
+                                      "style": "height: 22px;"
+                                    }
+                                  },
+                                  "elements": [
+                                    {
+                                      "type": "text",
+                                      "content": "4",
+                                      "config": {
+                                        "css": {
+                                          "style": "padding-right: 5px;"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "label",
+                                      "name": "dateOfBirth"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "row",
+                                  "elements": [
+                                    {
+                                      "type": "attribute",
+                                      "name": "dateOfBirth",
+                                      "config": {
+                                        "css": {
+                                          "style": "margin-top: -2px; margin-bottom: 2px;",
+                                          "classes": [
+                                            "data-input"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "col",
+                              "size": "3",
+                              "config": {
+                                "css": {
+                                  "style": "padding-left: 35px;"
+                                }
+                              },
+                              "elements": [
+                                {
+                                  "type": "row",
+                                  "config": {
+                                    "css": {
+                                      "style": "height: 22px;"
+                                    }
+                                  },
+                                  "elements": [
+                                    {
+                                      "type": "text",
+                                      "content": "5",
+                                      "config": {
+                                        "css": {
+                                          "style": "padding-right: 5px;"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "label",
+                                      "name": "sex"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "row",
+                                  "elements": [
+                                    {
+                                      "type": "code",
+                                      "name": "sex",
+                                      "config": {
+                                        "css": {
+                                          "style": "margin-top: -2px; margin-bottom: 2px;",
+                                          "classes": [
+                                            "data-input-uppercase"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "col",
+                              "size": "4",
+                              "elements": [
+                                {
+                                  "type": "row",
+                                  "config": {
+                                    "css": {
+                                      "style": "height: 22px;"
+                                    }
+                                  },
+                                  "elements": [
+                                    {
+                                      "type": "text",
+                                      "content": "6",
+                                      "config": {
+                                        "css": {
+                                          "style": "padding-right: 5px;"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "layout-label",
+                                      "name": "height"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "row",
+                                  "elements": [
+                                    {
+                                      "type": "attribute",
+                                      "name": "optionalPersonalData",
+                                      "config": {
+                                        "css": {
+                                          "style": "margin-top: -2px; margin-bottom: 2px;",
+                                          "classes": [
+                                            "data-input-uppercase"
+                                          ]
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "text",
+                                      "content": "cm",
+                                      "config": {
+                                        "css": {
+                                          "style": "font-size: 21px; margin-top: -2px; margin-bottom: 2px; padding-left: 10px;",
+                                          "classes": [
+                                            "data-input"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "row",
+                          "config": {
+                            "css": {
+                              "style": "margin-top: -2px;",
+                              "classes": [
+                                "attribute-label-wide"
+                              ]
+                            }
+                          },
+                          "elements": [
+                            {
+                              "type": "col",
+                              "elements": [
+                                {
+                                  "type": "row",
+                                  "config": {
+                                    "css": {
+                                      "style": "height: 22px;"
+                                    }
+                                  },
+                                  "elements": [
+                                    {
+                                      "type": "text",
+                                      "content": "7",
+                                      "config": {
+                                        "css": {
+                                          "style": "padding-right: 5px;"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "layout-label",
+                                      "name": "place-of-origin"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "row",
+                                  "elements": [
+                                    {
+                                      "type": "attribute",
+                                      "name": "placeOfBirth",
+                                      "config": {
+                                        "css": {
+                                          "classes": [
+                                            "data-input"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "row",
+                          "config": {
+                            "css": {
+                              "style": "margin-top: 2px;",
+                              "classes": [
+                                "attribute-label-wide"
+                              ]
+                            }
+                          },
+                          "elements": [
+                            {
+                              "type": "col",
+                              "size": "5",
+                              "elements": [
+                                {
+                                  "type": "row",
+                                  "config": {
+                                    "css": {
+                                      "style": "height: 22px;"
+                                    }
+                                  },
+                                  "elements": [
+                                    {
+                                      "type": "text",
+                                      "content": "8",
+                                      "config": {
+                                        "css": {
+                                          "style": "padding-right: 5px;"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "label",
+                                      "name": "dateOfIssue"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "row",
+                                  "elements": [
+                                    {
+                                      "type": "attribute",
+                                      "name": "dateOfIssue",
+                                      "config": {
+                                        "css": {
+                                          "classes": [
+                                            "data-input"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "col",
+                              "size": "7",
+                              "config": {
+                                "css": {
+                                  "style": "padding-left: 35px;"
+                                }
+                              },
+                              "elements": [
+                                {
+                                  "type": "row",
+                                  "config": {
+                                    "css": {
+                                      "style": "height: 22px;"
+                                    }
+                                  },
+                                  "elements": [
+                                    {
+                                      "type": "text",
+                                      "content": "9",
+                                      "config": {
+                                        "css": {
+                                          "style": "padding-right: 5px;"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "label",
+                                      "name": "issuedBy"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "row",
+                                  "elements": [
+                                    {
+                                      "type": "attribute",
+                                      "name": "issuedBy",
+                                      "config": {
+                                        "css": {
+                                          "style": "font-size: 21px;",
+                                          "classes": [
+                                            "data-input"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "row",
+                          "config": {
+                            "css": {
+                              "style": "margin-top: -1px;",
+                              "classes": [
+                                "attribute-label-wide"
+                              ]
+                            }
+                          },
+                          "elements": [
+                            {
+                              "type": "col",
+                              "elements": [
+                                {
+                                  "type": "row",
+                                  "config": {
+                                    "css": {
+                                      "style": "height: 22px;"
+                                    }
+                                  },
+                                  "elements": [
+                                    {
+                                      "type": "text",
+                                      "content": "10",
+                                      "config": {
+                                        "css": {
+                                          "style": "padding-right: 5px;"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "label",
+                                      "name": "dateOfExpiry"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "row",
+                                  "elements": [
+                                    {
+                                      "type": "attribute",
+                                      "name": "dateOfExpiry",
+                                      "config": {
+                                        "css": {
+                                          "style": "margin-top: -2px; margin-bottom: 2px;",
+                                          "classes": [
+                                            "data-input"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "row",
+                  "config": {
+                    "css": {
+                      "style": "height: 50px;"
+                    }
+                  }
+                },
+                {
+                  "type": "row",
+                  "config": {
+                    "css": {
+                      "style": "margin-top: 45px; font-family: 'OCRB 10 Pitch BT'; font-size: 31px;"
+                    }
+                  },
+                  "elements": [
+                    {
+                      "type": "col",
+                      "elements": [
+                        {
+                          "type": "row",
+                          "config": {
+                            "css": {
+                              "style": "padding-left: 50px; font-size: 31px; letter-spacing: 1.84px;"
+                            }
+                          },
+                          "elements": [
+                            {
+                              "type": "col",
+                              "config": {
+                                "css": {
+                                  "style": "white-space: nowrap; overflow: hidden; max-width: 895px; text-transform: uppercase;"
+                                }
+                              },
+                              "elements": [
+                                {
+                                  "type": "text",
+                                  "content": "P<",
+                                  "config": {
+                                    "css": {
+                                      "style": "display: inline-block;"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "code",
+                                  "name": "issuingStateCode",
+                                  "config": {
+                                    "css": {
+                                      "style": "display: inline-block;"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "attribute",
+                                  "name": "secondaryIdentifier",
+                                  "config": {
+                                    "css": {
+                                      "style": "display: inline-block;"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "text",
+                                  "content": "<<",
+                                  "config": {
+                                    "css": {
+                                      "style": "display: inline-block;"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "attribute",
+                                  "name": "primaryIdentifier",
+                                  "config": {
+                                    "css": {
+                                      "style": "display: inline-block;"
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "text",
+                                  "content": "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                                  "config": {
+                                    "css": {
+                                      "style": "display: inline-block;"
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "row",
+                          "config": {
+                            "css": {
+                              "style": "margin-top: 10px; padding-left: 60px; font-size: 30px; letter-spacing: 1.77px; text-transform: uppercase;"
+                            }
+                          },
+                          "elements": [
+                            {
+                              "type": "attribute",
+                              "name": "documentNumber"
+                            },
+                            {
+                              "type": "text",
+                              "content": "<0"
+                            },
+                            {
+                              "type": "code",
+                              "name": "issuingStateCode"
+                            },
+                            {
+                              "type": "text",
+                              "content": "0000000"
+                            },
+                            {
+                              "type": "code",
+                              "name": "sex"
+                            },
+                            {
+                              "type": "text",
+                              "content": "0000000<<<<<<<<<<<<<<<<0"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "config": {
+                "css": {
+                  "style": "width: 980px; height: 700px; margin: 0;",
+                  "background_image": "SAI:zQmQQgMSzaL8LkkxSR9FsZYBsU4ouoMXxNTXF6uuAtZEPkg"
+                },
+                "name": "Page 1"
+              },
+              "elements": [
+                {
+                  "type": "row",
+                  "config": {
+                    "css": {
+                      "style": "height: 160px;"
+                    }
+                  }
+                },
+                {
+                  "type": "row",
+                  "elements": [
+                    {
+                      "type": "col",
+                      "size": "4"
+                    },
+                    {
+                      "type": "col",
+                      "size": "4",
+                      "config": {
+                        "css": {
+                          "style": "display: flex; justify-text: center;"
+                        }
+                      },
+                      "elements": [
+                        {
+                          "type": "attribute",
+                          "name": "signatureImage"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "col",
+                      "size": "4"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "labels": {
+            "given-name": {
+              "en": "Given name(s)",
+              "fr": "Prenom(s)"
+            },
+            "height": {
+              "en": "Height",
+              "fr": "Taille"
+            },
+            "passport": {
+              "en": "Passport",
+              "fr": "Passeport"
+            },
+            "place-of-origin": {
+              "en": "Place of origin",
+              "fr": "Lieu d'origine"
+            },
+            "surname": {
+              "en": "Surname",
+              "fr": "Nom"
+            }
+          }
+        }
+      }
+    ]
+  }
