@@ -1,174 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ShowElement Given a hidden hideShowOptions should not display the hide/show button 1`] = `<View />`;
+exports[`ShowElement Given a hidden hideShowOptions should not display the hide/show button 1`] = `
+<ShowElement
+  hideShowOptions={
+    Object {
+      "visibility": false,
+    }
+  }
+  onToggleViewPressed={[Function]}
+  shown={false}
+/>
+`;
 
 exports[`ShowElement Given a visible hideShowOptions and a custom styling should render ShowElement with the style 1`] = `
-<View>
-  <View
-    accessible={true}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
+<ShowElement
+  hideShowOptions={
+    Object {
+      "visibility": true,
     }
-  >
-    <View>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#333",
-              "fontSize": 18,
-              "fontWeight": "normal",
-            },
-            Object {
-              "fontSize": 20,
-              "textDecorationLine": "underline",
-            },
-          ]
-        }
-      >
-        Hide
-      </Text>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`ShowElement Given a visible hideShowOptions, a hidden attribute value and a custom show label should render the custom show label properly 1`] = `
-<View>
-  <View
-    accessible={true}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
+  }
+  onToggleViewPressed={[Function]}
+  shown={true}
+  style={
+    Object {
+      "fontSize": 20,
+      "textDecorationLine": "underline",
     }
-  >
-    <View>
-      <Text>
-        Afficher
-      </Text>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`ShowElement Given a visible hideShowOptions, a visible attribute value and a custom hide label should render the custom hide label properly 1`] = `
-<View>
-  <View
-    accessible={true}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-  >
-    <View>
-      <Text>
-        Cacher
-      </Text>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`ShowElement Given visible hideShowOptions and hidden attribute value should render the show button properly 1`] = `
-<View>
-  <View
-    accessible={true}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-  >
-    <View>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#333",
-              "fontSize": 18,
-              "fontWeight": "normal",
-            },
-            undefined,
-          ]
-        }
-      >
-        Show
-      </Text>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`ShowElement Given visible hideShowOptions and visible attribute value should render the hide button properly 1`] = `
-<View>
-  <View
-    accessible={true}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-  >
-    <View>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#333",
-              "fontSize": 18,
-              "fontWeight": "normal",
-            },
-            undefined,
-          ]
-        }
-      >
-        Hide
-      </Text>
-    </View>
-  </View>
-</View>
+  }
+/>
 `;

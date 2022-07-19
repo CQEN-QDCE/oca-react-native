@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react-native';
 import { Attribute } from '../../../components/OCAForm/components/Attribute';
 import { Text } from 'react-native';
 const textAttribute = { name: 'Birth date', value: '2000-02-21', type: 'Text' };
@@ -13,69 +13,66 @@ const binaryAttribute = {
 const onTogglePress = () => {};
 
 describe('Oca Attribute', () => {
-  it('Given a text attribute should render properly.', () => {
-    const tree = renderer
-      .create(
-        <Attribute
-          attribute={textAttribute}
-          onToggleViewPressed={onTogglePress}
-          shown={true}
-          hideShowOptions={{ visibility: true }}
-        />
-      )
-      .toJSON();
+  it('Given a visible text attribute should render label and value visible.', async () => {
+    const { findByText } = render(
+      <Attribute
+        attribute={textAttribute}
+        onToggleViewPressed={onTogglePress}
+        shown={true}
+        hideShowOptions={{ visibility: true }}
+      />
+    );
 
-    expect(tree).toMatchSnapshot();
+    const label = await findByText(textAttribute.name);
+    const value = await findByText(textAttribute.value);
+    expect(label).toBeTruthy();
+    expect(value).toBeTruthy();
   });
 
   it('Given a binary attribute should render properly', () => {
-    const tree = renderer
-      .create(
-        <Attribute
-          attribute={binaryAttribute}
-          onToggleViewPressed={onTogglePress}
-          shown={true}
-          hideShowOptions={{ visibility: true }}
-        />
-      )
-      .toJSON();
+    const tree = render(
+      <Attribute
+        attribute={binaryAttribute}
+        onToggleViewPressed={onTogglePress}
+        shown={true}
+        hideShowOptions={{ visibility: true }}
+      />
+    );
 
     expect(tree).toMatchSnapshot();
   });
 
-  it('Given a attributeLabel should render the attribute label properly', () => {
-    const tree = renderer
-      .create(
-        <Attribute
-          attribute={textAttribute}
-          onToggleViewPressed={onTogglePress}
-          shown={true}
-          hideShowOptions={{ visibility: false }}
-          attributeLabel={(attribute) => {
-            return <Text>{attribute.name}</Text>;
-          }}
-        />
-      )
-      .toJSON();
+  it('Given a attributeLabel should render the attribute label properly', async () => {
+    const { findByText } = render(
+      <Attribute
+        attribute={textAttribute}
+        onToggleViewPressed={onTogglePress}
+        shown={true}
+        hideShowOptions={{ visibility: false }}
+        attributeLabel={(attribute) => {
+          return <Text>{attribute.name}</Text>;
+        }}
+      />
+    );
 
-    expect(tree).toMatchSnapshot();
+    const label = await findByText(textAttribute.name);
+    expect(label).toBeTruthy();
   });
 
-  it('Given a attributeValue should render the attribute value properly', () => {
-    const tree = renderer
-      .create(
-        <Attribute
-          attribute={textAttribute}
-          onToggleViewPressed={onTogglePress}
-          shown={true}
-          hideShowOptions={{ visibility: false }}
-          attributeValue={(attribute) => {
-            return <Text>{attribute.value}</Text>;
-          }}
-        />
-      )
-      .toJSON();
+  it('Given a attributeValue should render the attribute value properly', async () => {
+    const { findByText } = render(
+      <Attribute
+        attribute={textAttribute}
+        onToggleViewPressed={onTogglePress}
+        shown={true}
+        hideShowOptions={{ visibility: false }}
+        attributeValue={(attribute) => {
+          return <Text>{attribute.value}</Text>;
+        }}
+      />
+    );
 
-    expect(tree).toMatchSnapshot();
+    const value = await findByText(textAttribute.value);
+    expect(value).toBeTruthy();
   });
 });

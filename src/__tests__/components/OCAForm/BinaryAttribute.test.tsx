@@ -1,4 +1,4 @@
-import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react-native';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { BinaryAttribute } from '../../../components/OCAForm/components/AttributesTypes/BinaryAttribute';
@@ -12,9 +12,9 @@ const binaryAttribute = {
 
 describe('BinaryAttribute', () => {
   it('Given a binary attribute should render the attribute value properly.', () => {
-    const tree = renderer
-      .create(<BinaryAttribute attribute={binaryAttribute} shown={true} />)
-      .toJSON();
+    const tree = render(
+      <BinaryAttribute attribute={binaryAttribute} shown={true} />
+    );
 
     expect(tree).toMatchSnapshot();
   });
@@ -26,15 +26,13 @@ describe('BinaryAttribute', () => {
         color: 'red',
       },
     });
-    const tree = renderer
-      .create(
-        <BinaryAttribute
-          attribute={binaryAttribute}
-          shown={false}
-          textStyle={styles.value}
-        />
-      )
-      .toJSON();
+    const tree = render(
+      <BinaryAttribute
+        attribute={binaryAttribute}
+        shown={false}
+        textStyle={styles.value}
+      />
+    );
 
     expect(tree).toMatchSnapshot();
   });
@@ -46,15 +44,13 @@ describe('BinaryAttribute', () => {
         width: 200,
       },
     });
-    const tree = renderer
-      .create(
-        <BinaryAttribute
-          attribute={binaryAttribute}
-          shown={true}
-          binaryStyle={styles.imageStyle}
-        />
-      )
-      .toJSON();
+    const tree = render(
+      <BinaryAttribute
+        attribute={binaryAttribute}
+        shown={true}
+        binaryStyle={styles.imageStyle}
+      />
+    );
 
     expect(tree).toMatchSnapshot();
   });
