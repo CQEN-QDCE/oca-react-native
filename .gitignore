@@ -43,6 +43,9 @@ oca-react-native-*
 local.properties
 android.iml
 
+# Jest
+.jest/
+
 # Cocoapods
 #
 example/ios/Pods

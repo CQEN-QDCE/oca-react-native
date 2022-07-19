@@ -24,6 +24,7 @@ export const getAttributes = ({
 
       let formattedValue;
       let type = control?.type;
+
       const value = attributesValues.find(
         (item) => item.name === control?.name
       )?.value;
