@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { SafeAreaView, View } from 'react-native';
+import { Platform, SafeAreaView, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 import jsYaml from 'js-yaml';
 import type { OCA } from 'oca.js';
@@ -18,15 +18,17 @@ export function OcaCredential({
   width,
   height,
 }: props): JSX.Element {
-  const ocaJs = new OcaJs({});
-  let webviewRef = useRef<WebView>();
-
+  const ocaJs = new OcaJs({}); 
+  let webviewRef = useRef<WebView>(null);
   useEffect(() => {
     if (oca) {
       ocaJs.createStructure(oca).then((ocaStructure) => {
         if (webviewRef.current) {
-          webviewRef.current.injectJavaScript(getInjection(ocaStructure));
-        }
+          console.log('--------------------------------------------------------------');  
+          console.log(JSON.stringify(ocaStructure));   
+          console.log('--------------------------------------------------------------');
+          webviewRef.current.injectJavaScript(getInjection(ocaStructure)); 
+        }   
       });
     }
   }, [oca]);
@@ -74,14 +76,15 @@ export function OcaCredential({
           incognito={true}
           cacheEnabled={false}
           style={{
-            backgroundColor: 'transparent',
-            minHeight: '100%',
-            minWidth: '100%',
+            backgroundColor: 'yellow',
+            minHeight: '100%', 
+            minWidth: '100%'
           }}
           domStorageEnabled={true}
           javaScriptEnabled={true}
           allowFileAccess={true}
           allowUniversalAccessFromFileURLs={true}
+          scalesPageToFit={Platform.select({ android: false})}
         />
       </View>
     </SafeAreaView>
