@@ -10,7 +10,6 @@ export interface Attribute {
   characterEncoding?: string;
 }
 
-
 export type AttributesValues = {
   name: string;
   value: string | number;
