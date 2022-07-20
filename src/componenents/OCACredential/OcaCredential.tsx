@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react';
-import { Platform, SafeAreaView, View } from 'react-native';
-import { WebView } from 'react-native-webview';
+import React, { ReactElement, useEffect, useRef, useState } from 'react';
+import { SafeAreaView, View } from 'react-native';
 import jsYaml from 'js-yaml';
 import type { OCA } from 'oca.js';
 import { OcaJs } from '../../packages/oca.js-form-core/OcaJs';
+import { generateOCACredentialNative2 } from '../../packages/oca.js-form-html/generateOCACredentialNative2';
 
 type props = {
   oca: OCA;
@@ -19,16 +19,11 @@ export function OcaCredential({
   height,
 }: props): JSX.Element {
   const ocaJs = new OcaJs({}); 
-  let webviewRef = useRef<WebView>(null);
+  const [credential, setCredential] = useState<ReactElement>(<View></View>);
   useEffect(() => {
     if (oca) {
       ocaJs.createStructure(oca).then((ocaStructure) => {
-        if (webviewRef.current) {
-          console.log('--------------------------------------------------------------');  
-          console.log(JSON.stringify(ocaStructure));   
-          console.log('--------------------------------------------------------------');
-          webviewRef.current.injectJavaScript(getInjection(ocaStructure)); 
-        }   
+        setCredential(generateOCACredentialNative2(ocaStructure, {}, {}));
       });
     }
   }, [oca]);
@@ -63,29 +58,7 @@ export function OcaCredential({
           alignItems: 'center',
         }}
       >
-        <WebView
-          automaticallyAdjustContentInsets={false}
-          originWhitelist={['*']}
-          ref={webviewRef}
-          onError={(syntheticEvent) => {
-            const { nativeEvent } = syntheticEvent;
-            console.warn('WebView error: ', nativeEvent);
-          }}
-          onMessage={() => {}}
-          source={require('./credential-layout.html')}
-          incognito={true}
-          cacheEnabled={false}
-          style={{
-            backgroundColor: 'yellow',
-            minHeight: '100%', 
-            minWidth: '100%'
-          }}
-          domStorageEnabled={true}
-          javaScriptEnabled={true}
-          allowFileAccess={true}
-          allowUniversalAccessFromFileURLs={true}
-          scalesPageToFit={Platform.select({ android: false})}
-        />
+        {credential}
       </View>
     </SafeAreaView>
   );
