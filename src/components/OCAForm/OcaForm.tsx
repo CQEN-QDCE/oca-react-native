@@ -8,7 +8,7 @@ import type {
   StylingOptions,
 } from '../types';
 import { Attribute } from './components/Attribute';
-import { createOCAStructure } from '../createOCAStructure';
+import { createOcaStructure } from '../createOcaStructure';
 
 interface OcaFormProps {
   oca?: OCA;
@@ -28,18 +28,14 @@ const OcaForm = ({
   attributeValues,
   stylingOptions,
   hideShowOptions = defaultHideShowOptions,
-  maxNumberOfAttributes = 100,
+  maxNumberOfAttributes = 200,
 }: OcaFormProps) => {
   const [shown, setShown] = useState<boolean[]>([]);
   const [attributes, setAttributes] = useState<Array<any>>([]);
   useEffect(() => {
-    createOCAStructure(oca).then((ocaStructure) => {
+    createOcaStructure(oca).then((ocaStructure) => {
       setAttributes(
-        getAttributes({
-          structure: ocaStructure,
-          attributesValues: attributeValues,
-          language: deviceLanguage,
-        })
+        getAttributes(attributeValues, deviceLanguage, ocaStructure)
       );
     });
   }, [oca, attributeValues]);
