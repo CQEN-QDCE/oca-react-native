@@ -58,45 +58,55 @@ function renderElements(elements, layout): ReactElement[] {
 function getStyles(element) {
   let styles = [];
   if (element?.config?.css?.style) styles = cssToRn(element.config.css.style);
+  for (let i = 0; i < styles.length; i++) {
+    let style = styles[i];
+    if (style.hasOwnProperty('textAlign')) {
+      let style2 = JSON.parse(JSON.stringify(style));
+      style2['flex'] = 0;
+      style2['flexDirection'] = 'row';
+      style2['justifyContent'] = (style2.textAlign == 'right' ? 'flex-end' : (style2.textAlign == 'center' ? 'center' : 'flex-start'));
+      styles[i] = style2;
+    }
+  }
   return styles;
 }
 
 function renderElement(element, layout): ReactElement {
     let reactElement: ReactElement = <View></View>;
+    const language = 'fr';
     try { 
     switch (element.type) { 
       case 'row':
         if (element.elements) { 
-          reactElement = <View style={getStyles(element)}>{renderElements(element.elements, layout)}</View>;
+          let styles = getStyles(element);
+          styles.push({flexDirection: 'row', flexWrap: 'wrap'});
+          reactElement = <View style={styles}>{renderElements(element.elements, layout)}</View>;
         }
         break;
       case 'col':
-//        const styles = StyleSheet.create({
-//          width: '66%' 
-//        });
-          if (element.elements) { 
-            reactElement = <View style={getStyles(element)}>{renderElements(element.elements, layout)}</View>;
+        if (element.elements) { 
+          let styles = getStyles(element);
+          let colWidth = '100%'
+          if (element.size) {
+            colWidth = ((100 * parseInt(element.size)) / 12) + '%';
           }
-//        Alert.alert('Element', JSON.stringify(element));
+          styles.push({width: colWidth});
+          reactElement = <View style={styles}>{renderElements(element.elements, layout)}</View>;
+        }
         break;
-
       case 'layout-label':
-        const language = 'fr';
         reactElement = <Text>{layout.labels[element.name][language]}</Text>
         break;
-        /*
       case 'text':
-        el = document.createElement('div')
-        el.innerText = element.content
+        reactElement = <Text>{element.content}</Text>
         break
       case 'oca-name':
-        el = document.createElement('div')
-        el.innerText = structure.translations[language].name
+        reactElement = <Text>{structure.translations[language].name}</Text>
         break
       case 'oca-description':
-        el = document.createElement('div')
-        el.innerText = structure.translations[language].description
+        reactElement = <Text>{structure.translations[language].description}</Text>
         break
+        /*
       case 'category': {
         const section = structure.sections.find(
           el => el.id == element.name

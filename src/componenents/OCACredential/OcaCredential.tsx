@@ -1,6 +1,5 @@
 import React, { ReactElement, useEffect, useRef, useState } from 'react';
 import { SafeAreaView, View } from 'react-native';
-import jsYaml from 'js-yaml';
 import type { OCA } from 'oca.js';
 import { OcaJs } from '../../packages/oca.js-form-core/OcaJs';
 import { generateOCACredentialNative2 } from '../../packages/oca.js-form-html/generateOCACredentialNative2';
@@ -27,23 +26,6 @@ export function OcaCredential({
       });
     }
   }, [oca]);
-
-  const getInjection = (structureJson: any) => {
-    let layout = jsYaml.load(structureJson.credentialLayout, {
-      schema: jsYaml.JSON_SCHEMA,
-    });
-    return (
-      'renderOCACredential2(' +
-      JSON.stringify(structureJson) +
-      ', ' +
-      JSON.stringify(
-        attributeValues ? Object.fromEntries(attributeValues) : {}
-      ) +
-      ", { dataVaultUrl: 'https://data-vault.argo.colossi.network/api/v1/files'}, " +
-      JSON.stringify(layout) +
-      '); true;'
-    );
-  };
 
   return (
     <SafeAreaView
