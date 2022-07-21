@@ -34,15 +34,11 @@ export function OcaCredential({
   }, [oca]);
 
   const getInjection = (structureJson: any) => {
-    console.log(
-      '--------------------------------------------------------------'
-    );
     if (structureJson) {
       let layout = jsYaml.load(structureJson.credentialLayout, {
         schema: jsYaml.JSON_SCHEMA,
       });
-      console.log('GOOD');
-      return (
+ele      return (
         'renderOCACredential2(' +
         JSON.stringify(structureJson) +
         ', ' +
@@ -54,7 +50,6 @@ export function OcaCredential({
         '); true;'
       );
     }
-    console.log('BAD');
     return;
   };
 
