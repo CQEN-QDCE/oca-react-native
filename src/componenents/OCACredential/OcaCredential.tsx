@@ -44,7 +44,7 @@ export function OcaCredential({
       JSON.stringify(
         attributeValues ? Object.fromEntries(attributeValues) : {}
       ) +
-      ", { dataVaultUrl: 'https://data-vault.argo.colossi.network/api/v1/files'}, " +
+      ", {}, " +
       JSON.stringify(layout) +
       '); true;'
     );
