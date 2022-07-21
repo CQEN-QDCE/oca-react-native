@@ -38,7 +38,7 @@ export function OcaCredential({
       let layout = jsYaml.load(structureJson.credentialLayout, {
         schema: jsYaml.JSON_SCHEMA,
       });
-ele      return (
+      return (
         'renderOCACredential2(' +
         JSON.stringify(structureJson) +
         ', ' +
