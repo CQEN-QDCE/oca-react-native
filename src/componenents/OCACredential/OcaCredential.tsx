@@ -12,15 +12,11 @@ type props = {
   height: number | string | undefined;
 };
 
-export function OcaCredential({
-  oca,
-  attributeValues,
-  width,
-  height,
-}: props): JSX.Element {
+const OcaCredential = ({ oca, attributeValues, width, height }: props) => {
   const [structure, setStructure] = useState<any>(null);
   const ocaJs = new OcaJs({});
   let webviewRef = useRef<WebView>(null);
+
   useEffect(() => {
     if (oca) {
       ocaJs.createStructure(oca).then((ocaStructure) => {
@@ -80,17 +76,21 @@ export function OcaCredential({
           incognito={true}
           cacheEnabled={false}
           style={{
-            backgroundColor: 'yellow',
+            backgroundColor: 'transparent',
             minHeight: '100%',
             minWidth: '100%',
           }}
           domStorageEnabled={true}
           javaScriptEnabled={true}
+          startInLoadingState={true}
           allowFileAccess={true}
           allowUniversalAccessFromFileURLs={true}
+          allowFileAccessFromFileURLs={true}
           scalesPageToFit={Platform.select({ android: false })}
         />
       </View>
     </SafeAreaView>
   );
-}
+};
+
+export default OcaCredential;

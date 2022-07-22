@@ -139,9 +139,20 @@ const App = () => {
               height: 250,
               backgroundColor: 'transparent',
               justifyContent: 'center',
-              alignItems: 'center', 
+              alignItems: 'center',
             }}>
-            <OcaCredential height={'100%'} width={'100%'} oca={ocaCredentialLayoutBasic} attributeValues={new Map(Object.entries(dataRepo.EYz7AI0ePCPnpmTpM0CApKoMzBA5bkwek1vsRBEQuMdQ))} />
+            <OcaCredential
+              height={'100%'}
+              width={'100%'}
+              oca={ocaDigitalPassport}
+              attributeValues={
+                new Map(
+                  Object.entries(
+                    dataRepo.EYz7AI0ePCPnpmTpM0CApKoMzBA5bkwek1vsRBEQuMdQ,
+                  ),
+                )
+              }
+            />
           </View>
         </View>
         <View
