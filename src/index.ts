@@ -1,4 +1,4 @@
-import OcaCredential from './componenents/OCACredential/OcaCredential';
+import OcaCredential from './components/OCACredential/OcaCredential';
 import OcaForm from './components/OCAForm/OcaForm';
 import { createOcaStructure } from './components/createOcaStructure';
 import { getAttributes } from './components/getAttributes';
