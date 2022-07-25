@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShowElement Given a hidden hideShowOptions should not display the hide/show button 1`] = `
+<ShowElement
+  hideShowOptions={
+    Object {
+      "visibility": false,
+    }
+  }
+  onToggleViewPressed={[Function]}
+  shown={false}
+/>
+`;
+
+exports[`ShowElement Given a visible hideShowOptions and a custom styling should render ShowElement with the style 1`] = `
+<ShowElement
+  hideShowOptions={
+    Object {
+      "visibility": true,
+    }
+  }
+  onToggleViewPressed={[Function]}
+  shown={true}
+  style={
+    Object {
+      "fontSize": 20,
+      "textDecorationLine": "underline",
+    }
+  }
+/>
+`;

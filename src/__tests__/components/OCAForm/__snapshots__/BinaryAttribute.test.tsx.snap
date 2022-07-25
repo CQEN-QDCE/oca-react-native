@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BinaryAttribute Given a binary attribute should render the attribute value properly. 1`] = `
+<View
+  style={
+    Object {
+      "color": "#333",
+      "paddingVertical": 4,
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "uri": "iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeAQAAAADlUEq3AAAAAW9yTlQBz6J3mgAAACZJREFUaN7twTEBAAAAwqD1T+1pCaAAAAAAAAAAAAAAAAAAAAC4AT2GAAGWvJzxAAAAAElFTkSuQmCC",
+      }
+    }
+    style={
+      Object {
+        "aspectRatio": 1,
+        "borderRadius": 10,
+        "height": 150,
+        "resizeMode": "contain",
+      }
+    }
+  />
+</View>
+`;
+
+exports[`BinaryAttribute Given a binary attribute with custom styling should render the binary attribute properly. 1`] = `
+<View
+  style={
+    Object {
+      "color": "#333",
+      "paddingVertical": 4,
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "uri": "iVBORw0KGgoAAAANSUhEUgAAAV4AAAFeAQAAAADlUEq3AAAAAW9yTlQBz6J3mgAAACZJREFUaN7twTEBAAAAwqD1T+1pCaAAAAAAAAAAAAAAAAAAAAC4AT2GAAGWvJzxAAAAAElFTkSuQmCC",
+      }
+    }
+    style={
+      Object {
+        "aspectRatio": 1,
+        "borderRadius": 10,
+        "height": 200,
+        "resizeMode": "contain",
+        "width": 200,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`BinaryAttribute Given a hidden attribute with custom styling should render hidden value with custom styling. 1`] = `
+<View
+  style={
+    Object {
+      "color": "#333",
+      "paddingVertical": 4,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#333",
+          "fontSize": 18,
+          "fontWeight": "normal",
+        },
+        Object {
+          "color": "red",
+          "fontSize": 32,
+        },
+      ]
+    }
+  >
+    ••••••••••
+  </Text>
+</View>
+`;

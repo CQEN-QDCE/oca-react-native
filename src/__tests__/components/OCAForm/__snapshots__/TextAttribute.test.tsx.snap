@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextAttribute Given an attribute with custom styling should render the label with custom styling properly. 1`] = `
+<View
+  style={
+    Object {
+      "color": "#333",
+      "paddingVertical": 4,
+    }
+  }
+>
+  <Text
+    numberOfLines={200}
+    style={
+      Array [
+        Object {
+          "color": "#333",
+          "fontSize": 18,
+          "fontWeight": "normal",
+        },
+        Object {
+          "color": "red",
+          "fontSize": 32,
+        },
+      ]
+    }
+  >
+    2000-02-21
+  </Text>
+</View>
+`;

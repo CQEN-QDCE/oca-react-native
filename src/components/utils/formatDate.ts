@@ -7,7 +7,6 @@ export const formatDate = ({ value, format }: FormatValueProps) => {
   }
   const isValidDate = Date.parse(value);
   let currentData: Date | moment.Moment;
-  console.log(isValidDate);
   if (!isNaN(isValidDate)) {
     currentData = new Date(value);
   } else if (isNaN(isValidDate) && moment(value, format).isValid()) {

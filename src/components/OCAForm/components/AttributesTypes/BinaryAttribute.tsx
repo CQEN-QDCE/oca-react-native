@@ -12,7 +12,7 @@ import { attributeTypeStyle } from '../../../utils/attributeTypeStyle';
 
 interface BinaryAttributeProps {
   attribute: Attribute;
-  shown?: boolean;
+  shown: boolean;
   binaryStyle?: StyleProp<any>;
   textStyle?: StyleProp<TextStyle>;
 }

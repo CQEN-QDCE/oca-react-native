@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LabelElement Given an attribute with custom styling should render the label with custom styling properly. 1`] = `
+<View>
+  <Text
+    numberOfLines={1}
+    style={
+      Array [
+        Object {
+          "color": "#333",
+          "fontSize": 14,
+          "fontWeight": "bold",
+        },
+        Object {
+          "color": "red",
+          "fontSize": 32,
+        },
+      ]
+    }
+  >
+    Birth date
+  </Text>
+</View>
+`;

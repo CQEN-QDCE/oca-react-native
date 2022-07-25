@@ -6,7 +6,7 @@ import { attributeTypeStyle } from '../../../utils/attributeTypeStyle';
 interface TextAttributeProps {
   attribute: Attribute;
   shown: boolean;
-  styles: StyleProp<TextStyle>;
+  styles?: StyleProp<TextStyle>;
 }
 
 export const TextAttribute = ({

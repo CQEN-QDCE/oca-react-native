@@ -5,16 +5,11 @@ import type { AttributeTranslation } from '../packages/oca.js-form-core/types';
 import { formatDate } from './utils/formatDate';
 import { formatBinary } from './utils/formatBinary';
 
-type Props = {
-  structure?: Structure;
-  attributesValues: Array<AttributesValues>;
-  language: string;
-};
-export const getAttributes = ({
-  structure,
-  attributesValues,
-  language,
-}: Props) => {
+export const getAttributes = (
+  attributesValues: Array<AttributesValues>,
+  language: string,
+  structure?: Structure
+) => {
   const attributes = [];
   if (structure) {
     const lang = getLanguage(structure.translations, language);
@@ -24,6 +19,7 @@ export const getAttributes = ({
 
       let formattedValue;
       let type = control?.type;
+
       const value = attributesValues.find(
         (item) => item.name === control?.name
       )?.value;

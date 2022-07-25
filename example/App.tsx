@@ -19,7 +19,7 @@ import {
   OcaCredential,
   OcaForm,
   OCA,
-  createOCAStructure,
+  createOcaStructure,
   getAttributes,
 } from 'oca-react-native';
 
@@ -69,14 +69,8 @@ const App = () => {
       })
       .then(json => {
         setData(json as OCA);
-        createOCAStructure(json as OCA).then(OCAStructure => {
-          setOCAAttributes(
-            getAttributes({
-              structure: OCAStructure,
-              attributesValues: attributeValues,
-              language: 'en',
-            }),
-          );
+        createOcaStructure(json as OCA).then(OCAStructure => {
+          setOCAAttributes(getAttributes(attributeValues, 'en', OCAStructure));
         });
       })
       .catch();
@@ -236,15 +230,16 @@ const App = () => {
             </Text>
             <View>
               {OCAAttributes &&
-                OCAAttributes.map((items: any) => {
+                OCAAttributes.map(({name, value, index}: any) => {
                   return (
                     <View
+                      key={index}
                       style={{
                         width: '100%',
                         justifyContent: 'center',
                       }}>
-                      <Text style={{color: '#000'}}>{items.name}</Text>
-                      <Text style={{color: '#000'}}>{items.value}</Text>
+                      <Text style={{color: '#000'}}>{name}</Text>
+                      <Text style={{color: '#000'}}>{value}</Text>
                     </View>
                   );
                 })}
