@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Platform, SafeAreaView, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 import jsYaml from 'js-yaml';
@@ -12,42 +12,41 @@ type props = {
   height: number | string | undefined;
 };
 
-export function OcaCredential({
-  oca,
-  attributeValues,
-  width,
-  height,
-}: props): JSX.Element {
-  const ocaJs = new OcaJs({}); 
+const OcaCredential = ({ oca, attributeValues, width, height }: props) => {
+  const [structure, setStructure] = useState<any>(null);
+  const ocaJs = new OcaJs({});
   let webviewRef = useRef<WebView>(null);
+
   useEffect(() => {
     if (oca) {
       ocaJs.createStructure(oca).then((ocaStructure) => {
         if (webviewRef.current) {
-          console.log('--------------------------------------------------------------');  
-          console.log(JSON.stringify(ocaStructure));   
-          console.log('--------------------------------------------------------------');
-          webviewRef.current.injectJavaScript(getInjection(ocaStructure)); 
-        }   
+          console.log(JSON.stringify(ocaStructure));
+
+          setStructure(ocaStructure);
+        }
       });
     }
   }, [oca]);
 
   const getInjection = (structureJson: any) => {
-    let layout = jsYaml.load(structureJson.credentialLayout, {
-      schema: jsYaml.JSON_SCHEMA,
-    });
-    return (
-      'renderOCACredential2(' +
-      JSON.stringify(structureJson) +
-      ', ' +
-      JSON.stringify(
-        attributeValues ? Object.fromEntries(attributeValues) : {}
-      ) +
-      ", { dataVaultUrl: 'https://data-vault.argo.colossi.network/api/v1/files'}, " +
-      JSON.stringify(layout) +
-      '); true;'
-    );
+    if (structureJson) {
+      let layout = jsYaml.load(structureJson.credentialLayout, {
+        schema: jsYaml.JSON_SCHEMA,
+      });
+      return (
+        'renderOCACredential2(' +
+        JSON.stringify(structureJson) +
+        ', ' +
+        JSON.stringify(
+          attributeValues ? Object.fromEntries(attributeValues) : {}
+        ) +
+        ', {}, ' +
+        JSON.stringify(layout) +
+        '); true;'
+      );
+    }
+    return;
   };
 
   return (
@@ -71,22 +70,27 @@ export function OcaCredential({
             const { nativeEvent } = syntheticEvent;
             console.warn('WebView error: ', nativeEvent);
           }}
+          injectedJavaScript={getInjection(structure)}
           onMessage={() => {}}
           source={require('./credential-layout.html')}
           incognito={true}
           cacheEnabled={false}
           style={{
-            backgroundColor: 'yellow',
-            minHeight: '100%', 
-            minWidth: '100%'
+            backgroundColor: 'transparent',
+            minHeight: '100%',
+            minWidth: '100%',
           }}
           domStorageEnabled={true}
           javaScriptEnabled={true}
+          startInLoadingState={true}
           allowFileAccess={true}
           allowUniversalAccessFromFileURLs={true}
-          scalesPageToFit={Platform.select({ android: false})}
+          allowFileAccessFromFileURLs={true}
+          scalesPageToFit={Platform.select({ android: false })}
         />
       </View>
     </SafeAreaView>
   );
-}
+};
+
+export default OcaCredential;
