@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {
-  Alert,
-  SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,

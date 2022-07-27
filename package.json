@@ -13,7 +13,7 @@
     "android",
     "ios",
     "cpp",
-    "oca-wallet-react-native.podspec",
+    "oca-react-native.podspec",
     "!lib/typescript/example",
     "!android/build",
     "!ios/build",
