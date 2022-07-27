@@ -13,6 +13,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 const structure = require('./structure.json');
 const ocaCredentialLayoutBasic = require('./bundles/oca-credential-layout-basic.json');
 const ocaDigitalPassport = require('./bundles/oca-digital-passport.json');
+const oca = require('./bundles/oca.json');
 import {
   OcaCredential,
   OcaForm,
@@ -20,6 +21,7 @@ import {
   createOcaStructure,
   getAttributes,
 } from 'oca-react-native';
+import {Structure} from '../lib/typescript/packages/oca.js-form-core/entities/Structure';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -67,34 +69,23 @@ const App = () => {
       })
       .then(json => {
         setData(json as OCA);
-        createOcaStructure(json as OCA).then(OCAStructure => {
+        createOcaStructure(json as OCA).then((OCAStructure: Structure) => {
           setOCAAttributes(getAttributes(attributeValues, 'en', OCAStructure));
         });
       })
       .catch();
   }, []);
+
   const dataRepo = {
     EYz7AI0ePCPnpmTpM0CApKoMzBA5bkwek1vsRBEQuMdQ: {
-      drivingLicenseID: 'I12345678',
-      expirationDate: '08/31/2019',
-      lastName: 'Card',
-      firstName: 'Holder',
-      buildingNumber: '3570',
-      street: '21th Street',
-      city: 'Sacramento',
-      state: 'CA',
-      zipCode: '95818',
-      dateOfBirth: '08/29/1977',
-      restrictions: 'None',
-      class: 'C',
-      endorsements: 'None',
-      sex: 'M',
-      hairColor: 'brn',
-      eyesColor: 'blu',
-      height: '5\'-55"',
-      weight: '125',
-      documentDiscriminator: '09/30/201060221/21FD/18',
-      issueDate: '09/06/2010',
+      Nom: 'MonNom',
+      Prénom: 'MonPrénom',
+      'Date de naissance': '2000-01-21',
+      'Nom du parent 1': 'Parent 1',
+      'Nom du parent 2': 'Parent 2',
+      "Date d'émission": new Date().toJSON(),
+      "Date d'expiration": '95818',
+      "Niveau d'identification": 1,
     },
   };
   return (
@@ -136,7 +127,8 @@ const App = () => {
             <OcaCredential
               height={'100%'}
               width={'100%'}
-              oca={ocaDigitalPassport}
+              oca={oca}
+              language={'fr'}
               attributeValues={
                 new Map(
                   Object.entries(

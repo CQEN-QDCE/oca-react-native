@@ -1,0 +1,306 @@
+{
+    "capture_base": {
+        "type": "spec/capture_base/1.0",
+        "classification": "GICS:45102010",
+        "attributes": {
+            "Nom": "Text",
+            "Prénom": "Text",
+            "Date de naissance": "Date",
+            "Nom du parent 1": "Text",
+            "Nom du parent 2": "Text",
+            "Date d'émission": "Date",
+            "Date d'expiration": "Date",
+            "Niveau d'identification": "Text",
+            "Photo": "Binary"
+        },
+        "flagged_attributes": [
+            "Nom Du Parent 2",
+            "Nom Du Parent 1",
+            "Date Dexpiration",
+            "Nom",
+            "Photo"
+        ]
+    },
+    "overlays": [
+        {
+            "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+            "type": "spec/overlays/meta/1.0",
+            "language": "fr",
+            "name": "VIZ pour passeport numérique",
+            "description": "Un formulaire à utiliser pour capturer les données de la zone d'inspection visuelle pour un passeport numérique"
+        },
+        {
+            "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+            "type": "spec/overlays/format/1.0",
+            "attr_formats": {
+                "Nom": "YY-MM-DD",
+                "Prénom": "YY-MM-DD",
+                "Date de naissance": "YY-MM-DD",
+                "Nom du parent 1": "P[A-Z0-9]{1}",
+                "Nom du parent 2": "[A-Z0-9]{9}",
+                "Photo": "image/jpeg"
+            }
+        },
+        {
+            "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+            "type": "spec/overlays/label/1.0",
+            "language": "fr",
+            "attr_labels": {
+                "Nom": "Nom",
+                "Prénom": "Prénom",
+                "Date de naissance": "Date De Naissance",
+                "Nom du parent 1": "Nom Du Parent 1",
+                "Nom du parent 2": "Nom Du Parent 2",
+                "Date d'émission": "Date D'Émission",
+                "Date d'expiration": "Date D'Expiration",
+                "Niveau d'identification": "Niveau D'Identification",
+                "Photo": "Photo"
+            },
+            "attr_categories": [
+                "_cat-1_",
+                "_cat-2_",
+                "_cat-3_",
+                "_cat-4_",
+                "_cat-5_",
+                "_cat-6_"
+            ],
+            "cat_labels": {
+                "_cat-1_": "En-tête obligatoire",
+                "_cat-2_": "Éléments de données personnelles obligatoires et facultatifs",
+                "_cat-3_": "Éléments de données obligatoires et facultatifs du document",
+                "_cat-4_": "Signature obligatoire du titulaire ou marque usuelle (original ou reproduction)",
+                "_cat-5_": "Élément d'identification obligatoire",
+                "_cat-6_": "Éléments de données facultatifs"
+            }
+        },
+        {
+            "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+            "type": "spec/overlays/information/1.0",
+            "language": "fr",
+            "attr_information": {
+                "Nom": "Date de naissance du titulaire enregistrée par l'État ou l'organisme émetteur. Si la date de naissance est inconnue, consultez le Doc 9303-3 pour obtenir des conseils.",
+                "Prénom": "Date d'expiration du MRP. Pour plus de détails, voir Doc 9303-3.",
+                "Date de naissance": "Pour plus de détails, voir Doc 9303-3.",
+                "Nom du parent 1": "Lettre majuscule P pour désigner un MRP. Une lettre majuscule supplémentaire peut être utilisée, en position de caractère après la lettre P et à la discrétion de l'État ou de l'organisation émetteur, pour désigner d'autres types de passeports tels que le MRP délivré au personnel diplomatique, un MRP délivré pour les voyages d'affaires du gouvernement, ou un passeport délivré à des fins particulières.",
+                "Nom du parent 2": "Tel qu'indiqué par l'État ou l'organisation émetteur pour identifier de manière unique le document parmi tous les autres DVLM émis par l'État ou l'organisation. Pour plus de détails, voir Doc 9303-3.",
+                "Date d'émission": "Le mot pour \"passeport\" dans la langue de l'État ou de l'organisation émetteur.",
+                "Date d'expiration": "Le nom complet du titulaire, tel qu'identifié par l'État ou l'organisme émetteur. Pour plus de détails, voir Doc 9303-3.",
+                "Niveau d'identification": "Autorité ou organisme émetteur du MRP. Ce champ est utilisé pour indiquer l'autorité ou l'organisme émetteur et, éventuellement, sa localisation, qui peut être personnalisée dans ce champ. Pour plus de détails, voir Doc 9303-3.",
+                "Photo": "Au choix de l'État ou de l'organisme émetteur, la signature ou la marque usuelle peut être située dans la zone VI. La taille du champ à attribuer à la signature ou à la marque usuelle sur la page attenante est à la discrétion de l'État ou de l'organisme émetteur, sous réserve des limites dimensionnelles globales du MRP. Pour plus de détails, voir Doc 9303-3."
+            }
+        },
+        {
+            "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+            "type": "spec/overlays/entry/1.0",
+            "language": "fr",
+            "attr_entries": {
+                "Date d'émission": {
+                    "PASSPORT": "PASSEPORT"
+                }
+            }
+        },
+        {
+            "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+            "type": "spec/overlays/meta/1.0",
+            "language": "en",
+            "name": "VIZ for Digital Passport",
+            "description": "A form to be used for capturing Visual Inspection Zone data for a Digital Passport"
+        },
+        {
+            "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+            "type": "spec/overlays/information/1.0",
+            "language": "en",
+            "attr_information": {
+                "Nom": "Holder’s date of birth as recorded by the issuing State or organization. If the date of birth is unknown, see Doc 9303-3 for guidance.",
+                "Prénom": "Date of expiry of the MRP. For additional details see Doc 9303-3.",
+                "Date de naissance": "For details see Doc 9303-3.",
+                "Nom du parent 1": "Capital letter P to designate an MRP. One additional capital letter may be used, in the character position after the letter P and at the discretion of the issuing State or organization, to designate other types of passports such as MRP issued to diplomatic staff, an MRP issued for travel on government business, or a passport issued for a special purpose.",
+                "Nom du parent 2": "As given by the issuing State or organization to uniquely identify the document from all other MRTDs issued by the State or organization. For additional details see Doc 9303-3.",
+                "Date d'émission": "The word for “passport” in the language of the issuing State or organization.",
+                "Date d'expiration": "The full name of the holder, as identified by the issuing State or organization. For additional details see Doc 9303-3.",
+                "Niveau d'identification": "Authority or issuing organization for the MRP. This field shall be used to indicate the issuing authority or issuing organization and, optionally, its location, which may be personalized within this field. For additional details see Doc 9303-3.",
+                "Photo": "At the discretion of the issuing State or organization, the signature or usual mark may be located in Zone VI. The size of the field to be allocated to the signature or usual mark on the adjoining page shall be at the discretion of the issuing State or organization, subject to the overall dimensional limits of the MRP. For additional details see Doc 9303-3."
+            }
+        },
+        {
+            "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+            "type": "spec/overlays/character_encoding/1.0",
+            "default_character_encoding": "utf-8",
+            "attr_character_encoding": {
+                "Nom": "utf-8",
+                "Prénom": "utf-8",
+                "Date de naissance": "utf-8",
+                "Nom du parent 1": "utf-8",
+                "Nom du parent 2": "utf-8",
+                "Date d'émission": "utf-8",
+                "Date d'expiration": "utf-8",
+                "Niveau d'identification": "utf-8",
+                "Photo": "base64"
+            }
+        },
+        {
+            "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+            "type": "spec/overlays/conditional/1.0",
+            "attr_conditions": {
+                "Nom du parent 1": "${0}=='PASSPORT'"
+            },
+            "attr_dependencies": {
+                "Nom du parent 1": [
+                    "Date Demission"
+                ]
+            }
+        },
+        {
+            "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+            "type": "spec/overlays/label/1.0",
+            "language": "en",
+            "attr_labels": {
+                "Nom": "Last Name",
+                "Prénom": "First Name",
+                "Date de naissance": "Birth Date",
+                "Nom du parent 1": "First Parent Full Name",
+                "Nom du parent 2": "Second Parent Full Name",
+                "Date d'émission": "Date Of Issue",
+                "Date d'expiration": "Expiration date",
+                "Niveau d'identification": "Identification Level",
+                "Photo": "Picture"
+            },
+            "attr_categories": [
+                "_cat-1_",
+                "_cat-2_",
+                "_cat-3_",
+                "_cat-4_",
+                "_cat-5_",
+                "_cat-6_"
+            ],
+            "cat_labels": {
+                "_cat-1_": "Mandatory header",
+                "_cat-2_": "Mandatory and optional personal data elements",
+                "_cat-3_": "Mandatory and optional document data elements",
+                "_cat-4_": "Mandatory holder’s signature or usual mark (original or reproduction)",
+                "_cat-5_": "Mandatory identification feature",
+                "_cat-6_": "Optional data elements"
+            }
+        },
+        {
+            "capture_base": "EfeQBz5tyC0gett-ETgkg4pkxBwwuQoeYsT-9Nt0cNsc",
+            "type": "spec/overlays/credential_layout/1.0",
+            "layout": {
+                "version": "beta-1",
+                "config": {
+                    "css": {
+                        "width": "980px",
+                        "height": "1400px",
+                        "style": "@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap'); @font-face {\n  font-family: 'Euphemia';\n  src: url('https://data-vault.argo.colossi.network/api/v1/files/zQmVwGQNiz8nGHJW1ZvgCyi1Sx1WZeGwJRfdyLedxUJG1Np');\n} @font-face {\n  font-family: 'OCRB 10 Pitch BT';\n  src: url('https://data-vault.argo.colossi.network/api/v1/files/zQmPWK7khoAebbJDZsmgQgjyH2hsThYYPBKWbSbV5tn8NrC');\n} .header {\n  font-size: 23px;\n  color: rgb(35, 48, 103);\n  font-family: 'Nanum Gothic';\n  letter-spacing: 1.2px;\n} .attribute-label {\n  font-size: 11px;\n  color: rgb(35, 48, 103);\n  font-family: 'Nanum Gothic';\n} .attribute-label-wide {\n  font-size: 10px;\n  letter-spacing: 0.65px;\n  color: rgb(35, 48, 103);\n  font-family: 'Nanum Gothic';\n} .data-input-uppercase {\n  font-size: 21px;\n  color: rgb(34, 34, 34);\n  font-family: Euphemia;\n  text-transform: uppercase;\n} .data-input {\n  font-size: 19px;\n  color: rgb(34, 34, 34);\n  font-family: Euphemia;\n}"
+                    }
+                },
+                "pages": [
+                    {
+                        "config": {
+                            "css": {
+                                "style": "width: 980px; height: 700px; margin: 0; background-color: #095797; border-radius: 25px; overflow: hidden"
+                            },
+                            "name": "Page 0"
+                        },
+                        "elements": [
+                            {
+                                "type": "row",
+                                "config": {
+                                    "css": {
+                                        "style": "margin-top: 80px;"
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "type": "col",
+                                        "config": {
+                                            "css": {
+                                                "style": "text-align: center;"
+                                            }
+                                        },
+                                        "elements": [
+                                            {
+                                                "type": "layout-label",
+                                                "config": {
+                                                    "css": {
+                                                        "style": "font-size: 45px; letter-spacing: 0.5px; font-weight: bold; color: white"
+                                                    }
+                                                },
+                                                "name": "cardTitle"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "row",
+                                "config": {
+                                    "css": {
+                                        "style": "height: 52px; margin-top: 80px;"
+                                    }
+                                },
+                                "elements": [
+                                    {
+                                        "type": "col",
+                                        "size": 11,
+                                        "config": {
+                                            "css": {
+                                                "style": "text-align: center; margin-left: 5%;"
+                                            }
+                                        },
+                                        "elements": [
+                                            {
+                                                "type": "row",
+                                                "size": 5,
+
+                                                "elements": [
+                                                    {
+                                                        "type": "layout-label",
+                                                        "name": "firstName",
+                                                        "config": {
+                                                            "css": {
+                                                                "style": "font-size: 25px; color: white; display: inline-block"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "text",
+                                                        "content": ":",
+                                                        "config": {
+                                                            "css": {
+                                                                "style": "font-size: 25px; color: white; display: inline-block"
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "attribute",
+                                                        "name": "Prénom",
+                                                        "config": {
+                                                            "css": {
+                                                                "style": "font-size: 25px; color: white; display: inline-block; padding-left: 5px;"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "labels": {
+                    "firstName": {
+                        "en": "First Name",
+                        "fr": "Prénom"
+                    },
+                    "cardTitle": {
+                        "en": "Fictional Card",
+                        "fr": "Carte Fictive"
+                    }
+                }
+            }
+        }
+    ]
+}
