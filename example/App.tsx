@@ -21,7 +21,6 @@ import {
   createOcaStructure,
   getAttributes,
 } from 'oca-react-native';
-import {Structure} from '../lib/typescript/packages/oca.js-form-core/entities/Structure';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -69,7 +68,7 @@ const App = () => {
       })
       .then(json => {
         setData(json as OCA);
-        createOcaStructure(json as OCA).then((OCAStructure: Structure) => {
+        createOcaStructure(json as OCA).then(OCAStructure => {
           setOCAAttributes(getAttributes(attributeValues, 'en', OCAStructure));
         });
       })
