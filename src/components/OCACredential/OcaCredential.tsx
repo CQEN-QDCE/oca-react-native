@@ -14,6 +14,7 @@ import type { WebViewError } from 'react-native-webview/lib/WebViewTypes';
 type props = {
   oca: OCA;
   attributeValues: Map<string, string | number>;
+  pageNumber?: number;
   onError?: (syntheticEvent: NativeSyntheticEvent<WebViewError>) => void;
   language?: string;
   width?: number | string;
@@ -28,6 +29,7 @@ const HTML_SOURCE = Platform.select({
 const OcaCredential = ({
   oca,
   attributeValues,
+  pageNumber = 0,
   onError,
   language,
   width = '100%',
@@ -41,13 +43,16 @@ const OcaCredential = ({
     if (oca) {
       ocaJs.createStructure(oca).then((ocaStructure) => {
         if (webviewRef.current) {
-          console.log(JSON.stringify(ocaStructure));
-
           setStructure(ocaStructure);
         }
       });
     }
   }, [oca]);
+
+  useEffect(() => {
+    if (webviewRef.current)
+      webviewRef.current.injectJavaScript(getInjection(structure));
+  }, [pageNumber]);
 
   const getInjection = (structureJson: any) => {
     if (structureJson) {
@@ -65,10 +70,12 @@ const OcaCredential = ({
         JSON.stringify({ defaultLanguage: language }) +
         ',' +
         JSON.stringify(layout) +
+        ',' +
+        pageNumber +
         '); true;'
       );
     }
-    return;
+    return '';
   };
 
   return (
