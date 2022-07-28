@@ -1,13 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Platform, SafeAreaView, View } from 'react-native';
+import {
+  NativeSyntheticEvent,
+  Platform,
+  SafeAreaView,
+  View,
+} from 'react-native';
 import { WebView } from 'react-native-webview';
 import jsYaml from 'js-yaml';
 import type { OCA } from 'oca.js';
 import { OcaJs } from '../../packages/oca.js-form-core/OcaJs';
+import type { WebViewError } from 'react-native-webview/lib/WebViewTypes';
 
 type props = {
   oca: OCA;
   attributeValues: Map<string, string | number>;
+  onError?: (syntheticEvent: NativeSyntheticEvent<WebViewError>) => void;
   language?: string;
   width?: number | string;
   height?: number | string;
@@ -21,6 +28,7 @@ const HTML_SOURCE = Platform.select({
 const OcaCredential = ({
   oca,
   attributeValues,
+  onError,
   language,
   width = '100%',
   height = '100%',
@@ -80,10 +88,7 @@ const OcaCredential = ({
           automaticallyAdjustContentInsets={false}
           originWhitelist={['*']}
           ref={webviewRef}
-          onError={(syntheticEvent) => {
-            const { nativeEvent } = syntheticEvent;
-            console.warn('WebView error: ', nativeEvent);
-          }}
+          onError={onError}
           injectedJavaScript={getInjection(structure)}
           onMessage={() => {}}
           source={HTML_SOURCE}
