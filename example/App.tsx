@@ -4,6 +4,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TouchableOpacity,
   useColorScheme,
   View,
 } from 'react-native';
@@ -29,6 +30,7 @@ const App = () => {
   };
   const [data, setData] = useState<OCA | undefined>(undefined);
   const [OCAAttributes, setOCAAttributes] = useState<any>();
+  const [pageNumber, setPageNumber] = useState(0);
   const [attributeValues] = useState([
     {name: 'dateOfBirth', value: '02-22-1989'},
     {name: 'dateOfExpiry', value: '01-21-2025'},
@@ -127,7 +129,8 @@ const App = () => {
               height={'100%'}
               width={'100%'}
               oca={oca}
-              language={'fr'}
+              pageNumber={pageNumber}
+              language={'en'}
               attributeValues={
                 new Map(
                   Object.entries(
@@ -136,6 +139,48 @@ const App = () => {
                 )
               }
             />
+          </View>
+          <View
+            style={{
+              marginTop: 20,
+              width: '60%',
+              flexDirection: 'row',
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <TouchableOpacity
+              style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                flex: 1,
+                borderStyle: 'solid',
+                borderWidth: 2,
+                borderRightWidth: 1,
+                borderBottomLeftRadius: 5,
+                paddingVertical: 10,
+                borderTopLeftRadius: 5,
+                backgroundColor: '#fcfcfc',
+              }}
+              onPress={_ => setPageNumber(0)}>
+              <Text>Page 0</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                flex: 1,
+                borderStyle: 'solid',
+                borderWidth: 2,
+                borderLeftWidth: 1,
+                paddingVertical: 10,
+                borderBottomRightRadius: 5,
+                borderTopRightRadius: 5,
+                backgroundColor: '#fcfcfc',
+              }}
+              onPress={_ => setPageNumber(1)}>
+              <Text>Page 1</Text>
+            </TouchableOpacity>
           </View>
         </View>
         <View
