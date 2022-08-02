@@ -12,7 +12,7 @@ import { createOcaStructure } from '../createOcaStructure';
 
 interface OcaFormProps {
   oca?: OCA;
-  deviceLanguage: string;
+  language: string;
   attributeValues: AttributesValues[];
   stylingOptions?: StylingOptions;
   hideShowOptions?: HideShowOptions;
@@ -24,7 +24,7 @@ const defaultHideShowOptions = {
 
 const OcaForm = ({
   oca,
-  deviceLanguage,
+  language,
   attributeValues,
   stylingOptions,
   hideShowOptions = defaultHideShowOptions,
@@ -34,9 +34,7 @@ const OcaForm = ({
   const [attributes, setAttributes] = useState<Array<any>>([]);
   useEffect(() => {
     createOcaStructure(oca).then((ocaStructure) => {
-      setAttributes(
-        getAttributes(attributeValues, deviceLanguage, ocaStructure)
-      );
+      setAttributes(getAttributes(attributeValues, language, ocaStructure));
     });
   }, [oca, attributeValues]);
 
