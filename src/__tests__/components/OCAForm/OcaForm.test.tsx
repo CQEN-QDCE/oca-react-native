@@ -12,11 +12,7 @@ describe('OcaForm', () => {
     await waitFor(
       async () =>
         (tree = render(
-          <OcaForm
-            oca={oca}
-            attributeValues={attribute}
-            deviceLanguage={'en'}
-          />
+          <OcaForm oca={oca} attributeValues={attribute} language={'en'} />
         ))
     );
 
@@ -29,7 +25,7 @@ describe('OcaForm', () => {
         <OcaForm
           oca={undefined}
           attributeValues={attribute}
-          deviceLanguage={'en'}
+          language={'en'}
           hideShowOptions={{ visibility: false }}
         />
       )
@@ -48,7 +44,7 @@ describe('OcaForm', () => {
         <OcaForm
           oca={oca}
           attributeValues={attribute}
-          deviceLanguage={'en'}
+          language={'en'}
           hideShowOptions={{ visibility: false }}
         />
       )
@@ -67,7 +63,7 @@ describe('OcaForm', () => {
         <OcaForm
           oca={oca}
           attributeValues={attribute}
-          deviceLanguage={'en'}
+          language={'en'}
           hideShowOptions={{ visibility: false }}
         />
       )
@@ -85,7 +81,7 @@ describe('OcaForm', () => {
         <OcaForm
           oca={oca}
           attributeValues={attribute}
-          deviceLanguage={'en'}
+          language={'en'}
           maxNumberOfAttributes={maxNumberOfAttributes}
         />
       )
@@ -103,7 +99,7 @@ describe('OcaForm', () => {
         <OcaForm
           oca={oca}
           attributeValues={attribute}
-          deviceLanguage={'en'}
+          language={'en'}
           hideShowOptions={{
             visibility: true,
             labelHideAll: <Text>{hideAllLabel}</Text>,
@@ -120,7 +116,7 @@ describe('OcaForm', () => {
   it('When clicking show attribute. Value should be visible', async () => {
     await waitFor(() => {
       return render(
-        <OcaForm oca={oca} attributeValues={attribute} deviceLanguage={'en'} />
+        <OcaForm oca={oca} attributeValues={attribute} language={'en'} />
       );
     })
       .then(async ({ findByText, findAllByText }) => {
@@ -139,7 +135,7 @@ describe('OcaForm', () => {
     let attributesLength: number;
     await waitFor(() => {
       return render(
-        <OcaForm oca={oca} attributeValues={attribute} deviceLanguage={'en'} />
+        <OcaForm oca={oca} attributeValues={attribute} language={'en'} />
       );
     })
       .then(async ({ findByText, findAllByText, queryAllByText }) => {

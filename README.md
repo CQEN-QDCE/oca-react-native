@@ -19,7 +19,7 @@ directory README for installation instructions.
 ## Documentation
 
 The library is principally an adaptation of [oca.js-form-core](https://github.com/THCLab/oca.js-form-core) and
-[oca.js-form-html](https://github.com/THCLab/oca.js-form-html) to be easily use in react native. For that, the library oca-react-native expose OcaCredential, 
+[oca.js-form-html](https://github.com/THCLab/oca.js-form-html) to be easily use in react native. For that, the library oca-react-native expose OcaCredential,
 OcaForm, createOcaStructure and getAttributes.
 
 ### &ensp;OCA Credential
@@ -27,8 +27,11 @@ OcaForm, createOcaStructure and getAttributes.
 <OcaCredential
     oca,
     attributeValues,
+    pageNumber,
+    onError,
+    language,
     width,
-    height,
+    height
 />
 ```
 
@@ -37,11 +40,11 @@ OcaForm, createOcaStructure and getAttributes.
 ```
 <OcaForm 
     oca,
-    deviceLanguage,
+    language,
     attributeValues,
     stylingOptions,
-    hideShowOptions = defaultHideShowOptions,
-    maxNumberOfAttributes = 200
+    hideShowOptions,
+    maxNumberOfAttributes
 />
 ```
 

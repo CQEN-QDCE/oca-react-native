@@ -70,7 +70,7 @@ const App = () => {
       })
       .then(json => {
         setData(json as OCA);
-        createOcaStructure(json as OCA).then(OCAStructure => {
+        createOcaStructure(json as OCA).then((OCAStructure: any) => {
           setOCAAttributes(getAttributes(attributeValues, 'en', OCAStructure));
         });
       })
@@ -213,7 +213,7 @@ const App = () => {
               <OcaForm
                 oca={data}
                 attributeValues={attributeValues}
-                deviceLanguage={'en'}
+                language={'en'}
               />
             </View>
             {
