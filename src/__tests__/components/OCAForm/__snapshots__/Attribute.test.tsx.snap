@@ -68,6 +68,7 @@ exports[`Oca Attribute Given a binary attribute should render properly 1`] = `
     <View>
       <View
         accessible={true}
+        collapsable={false}
         focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
