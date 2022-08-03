@@ -4,7 +4,7 @@ import OcaForm from '../../../components/OCAForm/OcaForm';
 import { Text } from 'react-native';
 
 const attribute = [{ name: 'dateOfBirth', value: '2000-02-21' }];
-const oca = require('../../OCA.json');
+const oca = require('../../utils/OCA.json');
 
 describe('OcaForm', () => {
   it('Given valid params should render oca form properly.', async () => {
