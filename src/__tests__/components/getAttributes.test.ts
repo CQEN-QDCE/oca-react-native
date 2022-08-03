@@ -2,7 +2,7 @@ import type { Structure } from 'src/packages/oca.js-form-core/entities/Structure
 import { createOcaStructure } from '../../components/createOcaStructure';
 import { getAttributes } from '../../components/getAttributes';
 
-const oca = require('../OCA.json');
+const oca = require('../utils/OCA.json');
 
 describe('Get attributes from Structure', () => {
   let ocaStructure: Structure | undefined;

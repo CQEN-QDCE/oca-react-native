@@ -1,6 +1,6 @@
 import { createOcaStructure } from '../../components/createOcaStructure';
 
-const oca = require('../OCA.json');
+const oca = require('../utils/OCA.json');
 describe('Create Structure from OCA', () => {
   it('createOcaStructure with valid oca ', async () => {
     const ocaStructure = await createOcaStructure(oca);
