@@ -1,3 +1,6 @@
+[![img](https://img.shields.io/badge/Cycle%20de%20Vie-Phase%20d%C3%A9couverte-339999)](https://www.quebec.ca/gouv/politiques-orientations/vitrine-numeriqc/accompagnement-des-organismes-publics/demarche-conception-services-numeriques)
+[![License](https://img.shields.io/badge/Licence-LiLiQ--R-blue)](LICENSE)
+
 # oca-react-native library
 
 React Native library for Overlay Capture Architecture (OCA).
@@ -57,3 +60,6 @@ createOcaStructure(oca): Promise<Structure | undefined>
 ```
 getAttributes(attributesValues, language, structure): AttributesValues | object{name: string | undefined, ..., value: string | undefined}
 ```
+
+## Licence
+Distribué sous Licence Libre du Québec – Réciprocité (LiLiQ-R). Voir [LICENCE](LICENSE) pour plus d'informations.
